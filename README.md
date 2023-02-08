@@ -129,7 +129,6 @@ Contains template (generic) function in a C-style header file, providing the fol
 ### `./HackerRank`
 Contains solutions to some of the basic problem solving coding questions. Provided file name most likely describes the content.
 The `README.md` has more handy notes when encountering those problems.  
-[Click to see my hackerRank profile](https://www.hackerrank.com/XuhuaHuang?hr_r=1)
 
 ### `./ObjectiveC`
 Popular concepts in Objective-C.
@@ -138,6 +137,14 @@ Compiled in Windows using `GNUstep Core` and provided GNUstep developer tools.
 ### `./Projects`
 Contains projects carried along the coursework and includes some personal project as well.
 For example, building a terminal progress bar for visual effects and working with `OpenGL` library in `C++`.
+
+### `./LeetCode`
+
+Includes the current work of the force brush, also includes some personal projects.
+
+### `./AcWing`
+
+Contains the projects that are currently being studied in the AcWing Algorithm Competition course assignments, as well as some common code templates.
 
 ## References
 
