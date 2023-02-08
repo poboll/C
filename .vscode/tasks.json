@@ -12,9 +12,9 @@
         "-o",
         "${fileDirname}\\cache\\${fileBasenameNoExtension}.exe",
         "-fexec-charset=GBK",
-        "-std=c17"
+        "-std=c++17"
       ],
-      "command": "D:\\Program Files (x86)\\mingw64\\bin\\gcc.exe",
+      "command": "D:\\Program Files (x86)\\mingw64\\bin\\g++.exe",
       "group": {
         "isDefault": true,
         "kind": "build"
@@ -26,7 +26,7 @@
         "focus": false,
         "panel": "shared",
         "reveal": "silent",
-        "showReuseMessage": true
+        "showReuseMessage": false
       },
       "problemMatcher": "$gcc",
       "type": "process"
