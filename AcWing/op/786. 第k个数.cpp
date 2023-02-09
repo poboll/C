@@ -74,7 +74,9 @@ int quick_sort(int l, int r,int k){//C++全局变量和局部变量重名优先�
   if (k <= s1) {
     return quick_sort(l, j, k);
   }
-  return quick_sort(j + 1, r, k - s1);//return quick_sort(q,j+1,r,k-(j-l+1));
+  else {
+    return quick_sort(j + 1, r, k - s1);//return quick_sort(q,j+1,r,k-(j-l+1));
+  }
 }
 int main(){
   int n,k;
