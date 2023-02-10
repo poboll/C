@@ -1,7 +1,7 @@
 {
   "update.enableWindowsBackgroundUpdates": true,
 "background.customImages": [
-     "file:///C:/Users/dell/Pictures/Saved Pictures/IDE动漫/13.png" //图片的路径
+     "file:///C:/Users/dell/Pictures/Saved%20Pictures/IDE动漫/13.png" //图片的路径
 ],
 "background.style": {
      "content": "''",
