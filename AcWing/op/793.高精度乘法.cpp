@@ -21,8 +21,7 @@
 #include <string>
 #include <vector>
 using namespace std;
-vector<int> mul(vector<int> a, int b)
-{
+vector<int> mul(vector<int> a, int b) {
     vector<int> c;
     int num = 0; //用来存放临时计算结果
     for (int i = 0; i < a.size() || num != 0; i ++ )
@@ -36,8 +35,7 @@ vector<int> mul(vector<int> a, int b)
     return c;
 }
 
-int main()
-{
+int main() {
     string A;
     int b;
     cin >> A >> b;

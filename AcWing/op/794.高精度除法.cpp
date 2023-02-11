@@ -24,6 +24,7 @@ r = r * 10 + Ai
 商就是r / 10
 反而余数r = r % 10 对于下一个A[i]进行计算*/
 #include <iostream>
+#include <vector>
 #include <algorithm>
 using namespace std;
 //A/b   商是c，余数r
