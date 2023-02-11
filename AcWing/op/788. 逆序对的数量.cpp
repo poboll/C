@@ -21,7 +21,7 @@
 3.归并数组，并计算不在同一边的逆序对的数量
 4.然后遍历看看有没有没归并的数
 5.然后赋值给原数组*/
-#include<iostream>
+#include <iostream>
 using namespace std;
  
 const int N = 100010;
