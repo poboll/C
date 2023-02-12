@@ -24,13 +24,11 @@
 10
 */
 #include<iostream>
-#include<cstdio>
 using namespace std;
 const int N = 1e5+10;
 int n, m;
 int a[N], s[N];
-int main()
-{
+int main() {
     scanf("%d%d", &n, &m);//大数据输入scanf快一倍
     for(int i = 1; i <= n; i ++) { 
         scanf("%d", &a[i]);
