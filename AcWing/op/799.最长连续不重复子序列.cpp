@@ -14,27 +14,20 @@
 3
 */
 #include <iostream>
-
 using namespace std;
-
 const int N = 1e5 + 10;
 int a[N], s[N]; //a[i]用来存放原序列,s[i]用来存放区间中各数字出现次数
-
 int main()
 {
     int n;
     cin >> n;
-    
     for (int i = 0; i < n; i ++ ) cin >> a[i];
-    
     int res = 0;
-    for (int i = 0, j = 0; i < n; i ++ )
-    {
+    for (int i = 0, j = 0; i < n; i ++ ) {
         s[a[i]] ++; //a[i]出现次数加1
         while (s[a[i]] > 1) s[a[j ++]] --; //起点右移，直至没有区间内没有重复
         res = max(res, i - j + 1);
     }
-    
     cout << res << endl;
     return 0;
 }
