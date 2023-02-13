@@ -29,6 +29,7 @@ vector<int>::iterator unique(vector<int> &a) {
             a[j ++ ] = a[i];
         }
     }
+    // a[0] ~ a[j - 1] 所有a中不重复的数
     return a.begin() + j;
 }
 int main() {

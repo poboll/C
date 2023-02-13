@@ -1,6 +1,6 @@
-for (int i = 0, j = 0; i < n; i ++ )
+for (int i = 0, j = 0; i < n; i ++ )//后指针不断更新
 {
-    while (j < i && check(i, j)) j ++ ;
+    while (j < i && check(i, j)) j ++ ;//不满足条件，前指针更新
 
     // 具体问题的逻辑
 }

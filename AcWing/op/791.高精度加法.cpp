@@ -21,7 +21,7 @@ v.back();   // 返回容器中最后一个元素的引用
 #include <iostream>
 #include <vector>
 using namespace std;
-const int N = 1e6 +10;
+const int N = 1e6 + 10;
 // C = A + B
 vector<int> add(vector<int> &A, vector<int> &B) {//C++11新特性  添加引用-->提高效率
     vector<int> C;//定义数组C存两数之和
