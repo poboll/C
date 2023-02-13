@@ -11,20 +11,20 @@ vector<int>alls;
 //定义一个数对类型来表示每次的加c操作和询问
 typedef pair<int,int> PII;
 //设置一个vector数组来存储每次的加c操作和询问操作的数对（数对作为一个基本元素,vector数组是存储若干个这样的数对）
-vector<PII>add,query;
+vector<PII>add, query;
 //默写一下二分模板 待会要用
 int find(int x) {
-    int l = 0,r = alls.size()-1;
+    int l = 0,r = alls.size() - 1;
     while (l<r) {
         int mid = l + r >> 1;
-        if(alls[mid]>=x) r = mid;
+        if(alls[mid] >= x) r = mid;
         else l = mid + 1;
     }
     return r + 1;//也可以返回r r+1是将数据离散化成1,2,3,4...n(从1开始，而不是从0开始)
 }
 vector<int>::iterator unique(vector<int> &a) {
     int j = 0;
-    for (int i = 0; i < a.size();i ++) {
+    for (int i = 0; i < a.size(); i ++) {
         if(!i || a[i] != a[i - 1]) {
             a[j ++ ] = a[i];
         }
@@ -44,7 +44,7 @@ int main() {
     for (int i = 0; i < m; i ++) {
         int l, r;
         cin >> l >> r;
-        query.push_back({l,r});
+        query.push_back({l, r});
         alls.push_back(l);
         alls.push_back(r);
     }
