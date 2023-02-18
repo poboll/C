@@ -24,7 +24,7 @@ int main() {
         a = a * (-1);
     }
     double l = 0, r = a;
-    while(r - l > 1e-8) {
+    while(r - l > 1e-8) { //绝对值是否大于一个很小的数值0.00000001
         double mid = (l + r) / 2;
         if(mid * mid * mid >= a) r = mid;
         else l = mid;
