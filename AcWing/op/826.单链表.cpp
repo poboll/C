@@ -100,7 +100,7 @@ int main() {
             //表示删除第k个插入的数后面的数（当k为0时，示删除头结点）。
             cin >> k;
             //删除头结点需要特判，否则会丢失关系
-            if (k == 0) head = ne[head];
+            if (k == 0) head = ne[head];//或if (!k) 
             //第k个插入的数，那么在数组中下标是k-1,所以调用时需要使用remove(k-1,x)
             else remove(k - 1);
         } else {
