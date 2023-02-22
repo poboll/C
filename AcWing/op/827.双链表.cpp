@@ -64,7 +64,7 @@ void add_to_left(int k,int x) {//在k的左边插入x
 }
 void remove(int k)  {//删除第k个结点
   	r[l[k]]=r[k];//k的前驱的后继为k的后继
-	  l[r[k]]=l[k];//k发后继发前驱为k的前驱 
+	  l[r[k]]=l[k];//k的后继的前驱为k的前驱 
 }   
 void add_to_head(int x ) {//在链表的最左端插入数x
    	add_to_right(0,x);//在0的后面插入x 
