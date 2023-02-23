@@ -13,7 +13,7 @@
 其中，empty 操作的查询结果为 YES 或 NO，query 操作的查询结果为一个整数，表示栈顶元素的值。
 数据范围
 1≤M≤100000
-1≤x≤109
+1≤x≤10^9
 所有操作保证合法。
 输入样例：
 10
@@ -37,49 +37,44 @@ NO
 /*用数组模拟实现：
 ①第一个元素时n == 1
 ②n是全局变量，初始值为0
-③按照题目要求，三四两步最后加回车
-*/
-/*注意事项：
-①第一个元素时n == 1
-②n是全局变量，初始值为0
 ③按照题目要求，三四两步最后加回车*/
 #include <iostream>
 using namespace std;
 const int N=100010;
 //tt是栈顶指针
 int stk[N],tt;
-void push(int x){
+void push(int x) {
     stk[tt]=x;
     tt++;
 }
-void pop(){
+void pop() {
     tt--;
 }
-bool empty(){
+bool empty() {
     if(tt==0) return true;
     else return false;
 }
-int query(){
+int query() {
     if(!empty()) return stk[tt-1];
 }
-int main(){
+int main() {
     tt=0;
     int m;
     cin>>m;
     string s;
     int x;
-    while(m--){
+    while(m--) {
         cin>>s;
-        if(s=="push"){
+        if(s=="push") {
             cin>>x;
             push(x);
-        }else if(s=="pop"){
+        }else if(s=="pop") {
             pop();
-        }else if(s=="empty"){
+        }else if(s=="empty") {
             bool tmp=empty();
             if(tmp) cout<<"YES"<<endl;
             else cout<<"NO"<<endl;
-        }else{
+        }else {
             cout<<query()<<endl;
         }
     }
