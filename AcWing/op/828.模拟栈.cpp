@@ -58,9 +58,9 @@ int query() {
     if(!empty()) return stk[tt-1];
 }
 int main() {
-    tt=0;
+    tt = 0;
     int m;
-    cin>>m;
+    cin >> m;
     string s;
     int x;
     while(m--) {
