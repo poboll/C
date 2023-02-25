@@ -34,12 +34,9 @@ int find(int x) {
         p[x] = find(p[x]);
     return p[x];
 }
-
 int main() {
-    //优化输入
-    ios::sync_with_stdio(false);
     int n, m;
-    cin>>n>>m;
+    scanf("%d%d", &n, &m);
     //初始化并查集的p数组
     for(int i = 1; i <= n; i++)
         p[i] = i, cnt[i] = 1;//每个集合或者说连通块的初始元素个数为1
@@ -64,7 +61,7 @@ int main() {
         }
         else if(op[1] == '2') {
             scanf("%d", &a);
-            cout<<cnt[find(a)]<<endl;//输出a所在连通块/集合的元素个数
+            printf("%d\n", cnt[find(a)]);//输出a所在连通块/集合的元素个数
         }
     }
     return 0;
