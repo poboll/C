@@ -40,7 +40,7 @@ const int N = 1e5 + 10;
 int h[N],hp[N],ph[N],heap_size = 0;//hp,ph数组元素个数相同，同时等于堆中结点数
 //h[]是堆本身，这边假设一个集合p和堆中每个节点存在一一对应关系，即存在映射
 //hp则是h to p，利用h中的节点，找到对应p集合中对应的数，ph同理，也可以将ph和hp理解为互相保存对方地址的集合
-void heap_swap(int a,int b) {//a，b是堆数组下标，也就是位置，真正交换的是位置中的值
+void heap_swap(int a, int b) {//a，b是堆数组下标，也就是位置，真正交换的是位置中的值
     swap(ph[hp[a]],ph[hp[b]]);//首先要交换p指向h的位置，因为hp要用于索引hp数组，是根基，所以不能先改，参考双向链表删除结点
     swap(hp[a], hp[b]);//其次交换h指向p的位置
     swap(h[a], h[b]);//最后交换两个节点的位置
