@@ -3,7 +3,7 @@
 #include<iostream>
 using namespace std;
 //我们哈希表的存储应尽可能采用质数
-//因此这里我们需要找一个比比200000大的最小质数
+//因此这里我们需要找一个比200000大的最小质数
 /*int main() {
     for(int i = 200000;;i++) {
         bool flag = true;
@@ -59,7 +59,7 @@ int main() {
             h[find(x)] = x;
         }
         else {
-            if(h[find(x)]==null) puts("No");//puts自带换行输出
+            if(h[find(x)] == null) puts("No");//puts自带换行输出
             else puts("Yes");
         }
     }
