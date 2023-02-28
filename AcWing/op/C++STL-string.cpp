@@ -16,5 +16,7 @@ int main() {
     a += "def";
     a += 'C';
     cout << a << endl;
+    //常用函数
+    cout << a.substr(1,) << endl;
     return 0;
 }
