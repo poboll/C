@@ -1,22 +1,15 @@
-#include<cstring>
-#include<iostream>
-using namespace std;
-//我们哈希表的存储应尽可能采用质数
-//因此这里我们需要找一个比比100000大的最小质数
-int main()
-{
-    for(int i = 100000; ;i++) {
-        bool flag = true;
-        for(int j = 2; j * j < i; j ++) {
-            if(i % j == 0) {
-                flag = false;
-                break;
-            }
-        }
-        if(flag) {
-            cout << i;
-            break;
-        }
-    }
+#include <stdio.h>
+#include <math.h>
+double sum(double x1, double y1, double x2, double y2);
+int main() {
+    string a = "yxc";
+    a += "def";
+    a += 'C';
+    cout << a << endl;
+    //常用函数
+    cout << a.substr(1,) << endl;
     return 0;
+}
+double sum(double x1, double y1, double x2, double y2) {
+    double temp = sqrt(pow(fabs(x2 - x1), 2))
 }

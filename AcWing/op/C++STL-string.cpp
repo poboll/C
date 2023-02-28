@@ -17,6 +17,8 @@ int main() {
     a += 'C';
     cout << a << endl;
     //常用函数
-    cout << a.substr(1,) << endl;
+    cout << a.substr(1, 10) << endl;//输出到最后一个字母为止
+    //返回从一开始的子串
+    cout << a.substr(1) << endl;
     return 0;
 }
