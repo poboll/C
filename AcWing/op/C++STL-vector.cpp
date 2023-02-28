@@ -1,4 +1,13 @@
-/*C++STL-vector*/
+/*C++STL-vector
+vector, 变长数组，倍增的思想
+    size()  返回元素个数
+    empty()  返回是否为空
+    clear()  清空
+    front()/back()	返回第一个数/最后一个数
+    push_back()/pop_back()	最后插入一个数/删除最后一个数
+    begin()/end()	迭代器，返回第一、零个数/最后一个数后一个数
+    []	随机寻址
+    支持比较运算，按字典序*/
 #include <cstdio>
 #include <cstring>
 #include <iostream>

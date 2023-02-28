@@ -1,4 +1,9 @@
-/*C++STL-pair*/
+/*C++STL-pair
+pair<int, int>
+    first, 第一个元素
+    second, 第二个元素
+    支持比较运算，以first为第一关键字，以second为第二关键字（字典序）
+*/
 #include <cstdio>
 #include <cstring>
 #include <iostream>
