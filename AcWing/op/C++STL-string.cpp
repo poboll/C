@@ -1,10 +1,13 @@
 /*C++STL-string
-string，字符串
-    size()/length()  返回字符串长度
-    empty() 返回字符串是否为空
-    clear() 清空字符串
-    substr(起始下标，(子串长度))  返回子串
-    c_str()  返回字符串所在字符数组的起始地址*/
+deque, 双端队列
+    size()
+    empty()
+    clear()
+    front()/back() 返回第一个元素/返回最后一个函数
+    push_back()/pop_back() 最后插入/弹出最后
+    push_front()/pop_front() 队首插入元素/队首弹出元素
+    begin()/end()
+    [] 随机寻址*/
 #include <cstdio>
 #include <cstring>
 #include <iostream>
@@ -20,5 +23,7 @@ int main() {
     cout << a.substr(1, 10) << endl;//输出到最后一个字母为止
     //返回从一开始的子串
     cout << a.substr(1) << endl;
+    //a存储地址的字符地址
+    printf("%s\n", a.c_str());
     return 0;
 }
