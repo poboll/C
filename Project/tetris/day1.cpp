@@ -35,7 +35,7 @@ void gotoxy(int x, int y) {
 }
 ///改变打印颜色
 int color(int c) {
-    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), c);        //更改文字颜色
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), c);//更改文字颜色
     return 0;
 }
 ///隐藏光标(调用一次就行了)
@@ -51,7 +51,7 @@ void title() {
 	color(11);
 	gotoxy(25, 2);
 	printf("俄 罗 斯 方 块 by @mdo"); 
-	color(14);                             
+	color(3);                             
 	gotoxy(18, 4);
 	printf("■"); 
 	gotoxy(18, 5);
@@ -59,19 +59,19 @@ void title() {
 	gotoxy(18, 6);
 	printf("■");
 	
-	color(13);
-	gotoxy(26, 4);
+	color(14);//黄色
+	gotoxy(26, 5);
 	printf("■■"); 
-	gotoxy(28,5);
+	gotoxy(28, 6);
 	printf("■■");
 	
-	color(12);
-	gotoxy(36, 4);
-	printf("■■"); 
+	color(10);//绿色
 	gotoxy(36, 5);
+	printf("■■"); 
+	gotoxy(36, 6);
 	printf("■■");
 	
-	color(11);
+	color(13);//粉色
 	gotoxy(44, 4);
 	printf("■"); 
 	gotoxy(44, 5);
@@ -81,13 +81,13 @@ void title() {
 	gotoxy(44, 7);
 	printf("■");
 	
-	color(3);
-	gotoxy(54, 4);
+	color(12);//亮红色
+	gotoxy(54, 5);
 	printf("■"); 
-	gotoxy(50, 5);
+	gotoxy(50, 6);
 	printf("■■■");
 }
-void welcome(){                                             //欢迎界面 
+void welcome(){//欢迎界面 
 	int i, j = 1;
 	color(10);
 	for(i = 15; i < 60; i ++ ) {
