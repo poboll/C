@@ -45,28 +45,28 @@ YES
 询问队头query：用hh代表队头，q[hh]就是队头i元素，返回q[hh]即可。*/
 #include<iostream>
 using namespace std;
-const int N=100010;
+const int N = 100010;
 //q[]表示队列 hh表示队头 tt表示队尾
 int q[N];
-int hh=0,tt=-1;//最开始下标为0开始的队列
+int hh = 0, tt = -1;//最开始下标为0开始的队列
 int main() {
-    int m,x;
+    int m, x;
     string op;
-    cin>>m;
-    for(int i=0;i<m;i++) {
-        cin>>op;
-        if(op=="push") {
-            cin>>x;
-            q[++tt]=x;          //向队列插入元素
-        }else if(op=="pop") {
-            hh++;              //弹出队头元素
-        }else if(op=="query") {
-            cout<<q[hh]<<endl;//查询队头元素
+    cin >> m;
+    for(int i = 0; i < m; i ++) {
+        cin >> op;
+        if(op == "push") {
+            cin >> x;
+            q[++ tt] = x;//向队列插入元素
+        }else if(op == "pop") {
+            hh ++;//弹出队头元素
+        }else if(op == "query") {
+            cout << q[hh] << endl;//查询队头元素
         }else {
-            if(hh<=tt) {//不为空
-                cout<<"NO"<<endl;
-            }else {     //为空
-                cout<<"YES"<<endl;
+            if(hh <= tt) {//不为空
+                cout << "NO" << endl;
+            }else {//为空
+                cout << "YES" << endl;
             }
         }
     }
