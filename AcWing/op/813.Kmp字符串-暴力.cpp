@@ -4,23 +4,19 @@
 如果当前字符匹配成功（即S[i] == P[j]），则i++，j++，继续匹配下一个字符；
 如果失配（即S[i]! = P[j]），令i = i - (j - 1)，j = 0。相当于每次匹配失败时，i 回溯，j 被置为0。
     暴力匹配的代码，如下：*/
-int ViolentMatch(char* s, char* p)
-{
+int ViolentMatch(char* s, char* p) {
 	int sLen = strlen(s);
 	int pLen = strlen(p);
  
 	int i = 0;
 	int j = 0;
-	while (i < sLen && j < pLen)
-	{
-		if (s[i] == p[j])
-		{
+	while (i < sLen && j < pLen) {
+		if (s[i] == p[j]) {
 			//①如果当前字符匹配成功（即S[i] == P[j]），则i++，j++    
 			i++;
 			j++;
 		}
-		else
-		{
+		else {
 			//②如果失配（即S[i]! = P[j]），令i = i - (j - 1)，j = 0    
 			i = i - j + 1;
 			j = 0;
