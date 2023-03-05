@@ -1,5 +1,5 @@
 //超时
-#include<iostream>
+#include <iostream>
 using namespace std;
 const int N = 20;
 int n;
