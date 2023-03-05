@@ -10,9 +10,8 @@ void dfs(int x, int y, int s) {
     if (y == n) y = 0, x++;
     if (x == n) {
         // 摆好了 n 个皇后
-        if (s == n)
-        {
-            for (int i = 0; i < n; i++) puts(g[i]);
+        if (s == n) {
+            for (int i = 0; i < n; i ++) puts(g[i]);
             puts("");
         }
         return;
@@ -30,8 +29,8 @@ void dfs(int x, int y, int s) {
 }
 int main() {
     cin >> n;
-    for (int i = 0; i < n; i++)
-        for (int j = 0; j < n; j++)
+    for (int i = 0; i < n; i ++)
+        for (int j = 0; j < n; j ++)
             g[i][j] = '.';
     dfs(0, 0, 0);
     return 0;

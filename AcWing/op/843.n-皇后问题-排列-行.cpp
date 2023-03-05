@@ -48,7 +48,7 @@ bool col[N], dg[N], udg[N];
 // 按行搜索
 void dfs(int u) {
     if (u == n) {
-        for (int i = 0; i < n; i++) puts(g[i]);
+        for (int i = 0; i < n; i ++) puts(g[i]);
         puts("");
         return;
     }
@@ -70,8 +70,8 @@ void dfs(int u) {
 }
 int main() {
     cin >> n;
-    for (int i = 0; i < n; i++)
-        for (int j = 0; j < n; j++)
+    for (int i = 0; i < n; i ++)
+        for (int j = 0; j < n; j ++)
             g[i][j] = '.';
     dfs(0);
     return 0;
