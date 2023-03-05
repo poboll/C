@@ -24,16 +24,16 @@ int n, path[N];//存储当前已经插入的数字
 bool s[N];//标记数组，标记下标为i的数字是否用过
 void dfs(int cur) {
     if(cur > n) {//如果n个位置都已经插入完成，此时cur为n+1，因为数组下标从1开始
-        for(int i = 1; i <= n; i++)  printf("%d ",path[i]);
+        for(int i = 1; i <= n; i ++)  printf("%d ",path[i]);
         puts("");
         return;
     }
     //遍历所有数字，找出还没使用过的数字
-    for(int i = 1; i <= n; i++) {
+    for(int i = 1; i <= n; i ++) {
         if(!s[i]) {//如果第i个数字未使用过
             s[i] = true;//标记第i个数字已经使用
             path[cur] = i;//把第i个数字插入到数字当前数组中
-            dfs(cur+1);//继续深搜能够插入下一个位置的数字
+            dfs(cur + 1);//继续深搜能够插入下一个位置的数字
             s[i] = false;//恢复现场，将i标记成还未使用过
         }
     }
