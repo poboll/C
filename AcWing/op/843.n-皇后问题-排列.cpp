@@ -38,3 +38,33 @@ DFS（深度优先搜索）
     当dfs函数结束以后，一定要记得恢复上一层的状态（即列、对角线反对角线都恢复为未使用的状态）。这是dfs的回溯操作。
 3.输出结果
 */
+#include<iostream>
+using namespace std;
+const int N = 10;
+int n;//棋盘的大小
+char g[N][N];//存储皇后在棋盘中的位置
+bool col[N], dg[N], udg[N];//col-列，dg-对角线，udg-反对角线
+void dfs(int u) {//u表示行数
+    if(u == n) {//说明枚举完成了,直接输出结果
+        for(int i = 0; i < n; i++) cout << g[i] << endl;
+        cout << endl;
+    }
+    //枚举一般情况
+    for(int i = 0; i < n; i ++) {
+        if(!col[i] && !dg[u + i] && !udg[n - u + i]) {//剪枝
+            g[u][i] = 'Q';
+            col[i] = dg[u + i] = udg[n - u + i] = true;
+            dfs(u + 1);
+            col[i] = dg[u + i] = udg[n - u + i] = false;//恢复现场
+            g[u][i] = '.';//恢复现场
+        }
+    }
+}
+int main() {
+    cin >> n;
+    for(int i = 0; i < n; i++)
+        for(int j = 0; j < n; j++)
+            g[i][j] = '.';  
+    dfs(0);
+    return 0;
+}
