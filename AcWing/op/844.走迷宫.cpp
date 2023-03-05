@@ -10,7 +10,6 @@
 输出一个整数，表示从左上角移动至右下角的最少移动次数。
 数据范围
 1≤n,m≤100
-1
 输入样例：
 5 5
 0 1 0 0 0
@@ -18,12 +17,6 @@
 0 0 0 0 0
 0 1 1 1 0
 0 0 0 1 0
-1
-2
-3
-4
-5
-6
 输出样例：
 8*/
 #include <iostream>
@@ -40,15 +33,15 @@ int n, m;
 void bfs(int a, int b) {
 	//队列判断 
 	queue<PII> q;
-	q.push({a,b});
+	q.push({a, b});
 	while(!q.empty()) {
 		PII start = q.front();
 		q.pop();
 		//走过之后直接由0变为1 
 		g[start.first][start.second] = 1;
 	//四个方向（上下右左） 
-		int dx[4] = {0,1,0,-1};
-		int dy[4] = {-1,0,1,0};
+		int dx[4] = {0, 1, 0, -1};
+		int dy[4] = {-1, 0, 1, 0};
 		for(int i = 0; i < 4; i ++) {
 			//开始移动 
 			int x = start.first + dx[i];
@@ -56,7 +49,7 @@ void bfs(int a, int b) {
 			if(g[x][y] == 0){
 				g[x][y] = 1;
 				f[x][y] = f[start.first][start.second] + 1;
-				q.push({x,y});
+				q.push({x, y});
 			}
 		}
 	}
