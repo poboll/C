@@ -31,40 +31,48 @@ DFS（深度优先搜索）
 1.首先在所有的棋盘上都填上“ . ”
 2.按行开始枚举，判断皇后应该放在哪一列（核心代码）
     （1）当算法进行到第n行时，代表n个皇后都已经放置完毕，可以直接输出结果了
-    （2）当算法没有进行到第n行时（设为u)，利用for循环从第1列开始遍历，如果第i列没有放皇后，且其所处的正对角线和反对角线也都没有放置皇后，说明该位置可以
-放皇后；
+    （2）当算法没有进行到第n行时（设为u)，利用for循环从第1列开始遍历，如果第i列没有放皇后，且其所处的正对角线和反对角线也都没有放置皇后，说明该位置可以放皇后；
         然后标记这个位置所在的列、对角线和反对角线为true，即在同一列、同一对角线和同一反对角线的位置不可以再放皇后；
         接着调用dfs函数，进行到第 u + 1行，重复此操作；
         当dfs函数结束以后，一定要记得恢复上一层的状态（即列、对角线反对角线都恢复为未使用的状态）。这是dfs的回溯操作。
 3.输出结果
 */
-#include<iostream>
+#include <iostream>
 using namespace std;
-const int N = 10;
-int n;//棋盘的大小
-char g[N][N];//存储皇后在棋盘中的位置
-bool col[N], dg[N], udg[N];//col-列，dg-对角线，udg-反对角线
-void dfs(int u) {//u表示行数
-    if(u == n) {//说明枚举完成了,直接输出结果
-        for(int i = 0; i < n; i++) cout << g[i] << endl;
-        cout << endl;
+const int N = 20;
+int n;
+char g[N][N]; // 存储路径
+// bool 数组用来判断搜索的下一个位置是否可行
+// col 列, dg 对角线(左上->右下), udg 反对角线(左下->右上)
+bool col[N], dg[N], udg[N];
+// 按行搜索
+void dfs(int u) {
+    if (u == n) {
+        for (int i = 0; i < n; i++) puts(g[i]);
+        puts("");
+        return;
     }
-    //枚举一般情况
-    for(int i = 0; i < n; i ++) {
-        if(!col[i] && !dg[u + i] && !udg[n - u + i]) {//剪枝
-            g[u][i] = 'Q';
-            col[i] = dg[u + i] = udg[n - u + i] = true;
+    // 枚举 u 这一行，搜索合法的列
+    int x = u;
+    for (int y = 0; y < n; y++) {
+        // 剪枝(对于不满足要求的点，不再继续往下搜索)  
+        if (!col[y] && !dg[y - x + n] && !udg[y + x]) {
+            // 标记已访问，并加入路径
+            col[y] = dg[y - x + n] = udg[y + x] = true;
+            g[u][y] = 'Q';
+            // 向下搜索
             dfs(u + 1);
-            col[i] = dg[u + i] = udg[n - u + i] = false;//恢复现场
-            g[u][i] = '.';//恢复现场
+            // 回溯
+            g[u][y] = '.';
+            col[y] = dg[y - x + n] = udg[y + x] = false;  
         }
     }
 }
 int main() {
     cin >> n;
-    for(int i = 0; i < n; i++)
-        for(int j = 0; j < n; j++)
-            g[i][j] = '.';  
+    for (int i = 0; i < n; i++)
+        for (int j = 0; j < n; j++)
+            g[i][j] = '.';
     dfs(0);
     return 0;
 }
