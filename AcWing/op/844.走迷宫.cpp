@@ -39,7 +39,7 @@ void bfs(int a, int b) {
 		q.pop();
 		//走过之后直接由0变为1 
 		g[start.first][start.second] = 1;
-	//四个方向（上下右左） 
+	    //四个方向（上下右左） 
 		int dx[4] = {0, 1, 0, -1};
 		int dy[4] = {-1, 0, 1, 0};
 		for(int i = 0; i < 4; i ++) {
@@ -56,7 +56,7 @@ void bfs(int a, int b) {
 	cout << f[n][m];
 }
 int main() { 
-//g数组全部初始化为1，不用判断越界，走不出去了 
+    //g数组全部初始化为1，不用判断越界，走不出去了 
 	memset(g, 1, sizeof(g));
 	scanf("%d%d", &n, &m);
 	for(int i = 1; i <= n; i ++){
