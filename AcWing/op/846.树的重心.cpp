@@ -46,7 +46,7 @@ int dfs(int u) {
         int j = e[i];
         if(st[j])   continue;//不用遍历父节点
         int s = dfs(j);
-        size = max(size,s);//更新连通块的最值
+        size = max(size, s);//更新连通块的最值
         sum += s;//加上孩子节点的个数
     }
     size = max(size, n - sum - 1);//再次与父节点所在的连通块比较最值
@@ -54,10 +54,10 @@ int dfs(int u) {
     return sum + 1;
 }
 int main() {
-    cin>>n;
+    cin >> n;
     memset(h, -1, sizeof h);
     for(int i = 0; i < n - 1; i ++){
-        int a,b;
+        int a, b;
         cin >> a >> b;
         add(a, b), add(b, a);
     }
