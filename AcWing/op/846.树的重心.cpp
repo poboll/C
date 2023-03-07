@@ -42,7 +42,7 @@ void add(int a, int b) {
 int dfs(int u) {
     st[u] = true;//已经访问过，防止重复遍历父节点
     int size = 0, sum = 0;
-    for(int i = h[u]; i != -1; i = ne[i]){
+    for(int i = h[u]; i != -1; i = ne[i]) {
         int j = e[i];
         if(st[j])   continue;//不用遍历父节点
         int s = dfs(j);
@@ -56,7 +56,7 @@ int dfs(int u) {
 int main() {
     cin >> n;
     memset(h, -1, sizeof h);
-    for(int i = 0; i < n - 1; i ++){
+    for(int i = 0; i < n - 1; i ++) {
         int a, b;
         cin >> a >> b;
         add(a, b), add(b, a);
