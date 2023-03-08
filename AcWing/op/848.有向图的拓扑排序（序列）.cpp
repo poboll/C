@@ -22,8 +22,8 @@
 首先思考，如果无环图即满足拓扑排序，是否可以将该节点的所有 出边 删去，结果使得每个节点的入度是0，满足入度是0，则将其存储起来。
 如果存在环，一定存环上的点入度不是0.
 所以可以将结点的出边删除，下个节点的入度减减。*/
-# include <iostream>
-# include <cstring>
+#include <iostream>
+#include <cstring>
 using namespace std;
 const int N = 100010;
 int e[N],ne[N],h[N],idx;//用于创建邻接表
