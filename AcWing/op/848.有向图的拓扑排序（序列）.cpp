@@ -51,7 +51,7 @@ int main() {
     memset(h, -1, sizeof h);
     cin >> n >> m;
     for(int i = 0; i < m; i ++) {
-        int a,b;
+        int a, b;
         cin >> a >> b;
         add(a, b);
         d[b]++;//节点b的入度+1
