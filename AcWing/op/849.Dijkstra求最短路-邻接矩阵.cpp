@@ -29,17 +29,17 @@ int dijkstra() {
     // 距离初始化成无穷大
     memset(dist, 0x3f, sizeof dist);
     dist[1] = 0; // 1 号点距离为 0
-    for (int i = 0; i < n; i++){
+    for (int i = 0; i < n; i ++){
 	    // 在没有确定最短路的点中，距离源点最近的点
         int t = -1;
-        for (int j = 1; j <= n; j++)
+        for (int j = 1; j <= n; j ++)
             // 当前点未确定最短路 && 当前路不是最短的
             if (!st[j] && (t == -1 || dist[t] > dist[j]))
                 t = j;
         st[t] = true; // 标记已经确定最短路
         // 使用 t 更新其他点距离
         // 遍历所有 t 可以达到的点 jd
-        for (int j = 1; j <= n; j++)
+        for (int j = 1; j <= n; j ++)
             // 比较 1--> j 和 1--> t --> j 的距离
             dist[j] = min(dist[j], dist[t] + g[t][j]);
     }

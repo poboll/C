@@ -15,7 +15,7 @@ int dijkstra() {
     for (int i = 0; i < n; i ++) {
         int t = -1;
         // 找到未确定最短路的点中，距离源点最近的点 t
-        for (int j = 1; j <= n; j++)
+        for (int j = 1; j <= n; j ++)
             if (!st[j] && (t == -1 || dist[j] < dist[t]))
                 t = j;
         st[t] = true;
