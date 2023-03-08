@@ -26,26 +26,26 @@
 #include <cstring>
 using namespace std;
 const int N = 100010;
-int e[N],ne[N],h[N],idx;//用于创建邻接表
-int n,m;
+int e[N], ne[N], h[N], idx;//用于创建邻接表
+int n, m;
 int d[N];//记录每个节点的入度
 int q[N];//记录拓扑序列
 void add(int a,int b) {
-    e[idx] = b, ne[idx] = h[a], h[a] = idx++;
+    e[idx] = b, ne[idx] = h[a], h[a] = idx ++;
 }
 bool topsort() {
     int hh = 0, tt = -1;//因为此时没有放入任何节点所以tt=-1
     for(int i = 1; i <= n; i ++)//将所有入度为0的点放入队列
         if(d[i] == 0)   q[++ tt] = i;
     while(hh <= tt) {
-        int t = q[hh++];//取出队头元素
+        int t = q[hh ++];//取出队头元素
         for(int i = h[t]; i != -1; i = ne[i]) {//找队头元素的出边j
             int j = e[i];
             d[j] --;//j的入度--
             if(d[j] == 0)   q[++ tt] = j;//j的入度--为0时加入队列
         }
     }
-    return tt == n-1; //当tt=n-1时，所有点都入队了表示没有环，返回true
+    return tt == n - 1; //当tt=n-1时，所有点都入队了表示没有环，返回true
 }
 int main() {
     memset(h, -1, sizeof h);
