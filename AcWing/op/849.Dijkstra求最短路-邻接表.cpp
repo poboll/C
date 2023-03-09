@@ -25,14 +25,14 @@ int dijkstra() {
             dist[k] = min(dist[k], dist[t] + w[j]);     
         }
     }
-    if (dist[n] == 0x3f3f3f3f) return -1;
+    if (dist[n] == 0x3f3f3f3f)  return -1;
     return dist[n];
 }
 int main() {
     scanf("%d%d", &n, &m);
     // 默认边长初始化成无穷大
     memset(h, -1, sizeof h);
-    while (m --){
+    while (m --) {
         int a, b, c;
         scanf("%d%d%d", &a, &b, &c);
         // 处理重边，只需要记录最短的边
