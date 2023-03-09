@@ -42,7 +42,7 @@ int dijkstra() {
         heap.pop();
         int ver = t.second; // 节点编号
         // int distance = t.first; // 源点距离 ver 的距离
-        if (st[ver]) continue; // 如果距离已经确定，则跳过该点
+        if (st[ver])    continue; // 如果距离已经确定，则跳过该点
         // 更新 ver 所指向的节点距离       
         st[ver] = true;
         for (int i = h[ver]; i != -1; i = ne[i]) {
