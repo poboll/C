@@ -29,7 +29,7 @@ int dijkstra() {
     // 距离初始化成无穷大
     memset(dist, 0x3f, sizeof dist);
     dist[1] = 0; // 1 号点距离为 0
-    for (int i = 0; i < n; i ++){
+    for (int i = 0; i < n; i ++) {
 	    // 在没有确定最短路的点中，距离源点最近的点
         int t = -1;
         for (int j = 1; j <= n; j ++)
