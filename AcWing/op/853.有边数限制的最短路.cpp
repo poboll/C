@@ -18,62 +18,47 @@
 1 3 3
 输出样例：
 3*/
+/*尝试能否利用 源点 → a → b 来减少 源点 → b 的距离*/
 #include <iostream>
 #include <cstring>
 using namespace std;
-
 const int N = 510, M = 1e4 + 10;
-
-struct Edge
-{
+struct Edge {
     int a, b, w;
 } edge[M];
-
 int dist[N], backup[N];
 int n, m, k;
-
-int bellman_ford()
-{
+int bellman_ford() {
     memset(dist, 0x3f, sizeof dist);
     dist[1] = 0;
-    
     // 题目要求不超过k条边
-    for (int i = 0; i < k; i++)
-    {
+    for (int i = 0; i < k; i ++) {
         // 所有迭代过程中都是依赖上一次的dist
         // 如果不做备份，当前dist值会被其他的边更新过了，导致错误
         memcpy(backup, dist, sizeof dist);
-        for (int j = 0; j < m; j++)
+        for (int j = 0; j < m; j ++)
         {
             int a = edge[j].a, b = edge[j].b, w = edge[j].w;
             // 只用上一次迭代的结果更新当前的距离
             dist[b] = min(dist[b], backup[a] + w);
         }
     }
-    
     // 为什么要这么判断呢？
     // 因为可能存在: i号结点 → n号结点的边，边权为-2
     // 但是i号结点本来就不可达，dist[i]是0x3f3f3f3f，dist[n]是0x3f3f3f3f
     // 但是dist[n]可以被dist[i]更新为0x3f3f3f3f - 2，因此不可以用“==”符号
-    if (dist[n] > 0x3f3f3f3f / 2) return -1;
+    if (dist[n] > 0x3f3f3f3f / 2)   return -1;
     return dist[n];
 }
-
-int main()
-{
+int main() {
     scanf("%d%d%d", &n, &m, &k);
-    
-    for (int i = 0; i < m; i++)
-    {
+    for (int i = 0; i < m; i ++) {
         int a, b, w;
         scanf("%d%d%d", &a, &b, &w);
         edge[i] = {a, b, w};
     }
-    
     int t = bellman_ford();
-    
     if (t == -1) puts("impossible");
     else printf("%d\n", t);
-    
     return 0;
 }
