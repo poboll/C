@@ -13,7 +13,6 @@ void bellman_ford() {
     // 初始化距离为无穷大
     memset(dist, 0x3f, sizeof dist);
     dist[1] = 0; // 源点到源点距离为 0
-
     for (int i = 0; i < k; i ++) {
 		// 备份上一次迭代的结果，防止出现串联（用本次更新的点去更新其他点）
 	    memcpy(backup, dist, sizeof dist);
@@ -23,7 +22,7 @@ void bellman_ford() {
             dist[b] = min(dist[b], backup[a] + w);
         }
     }
-    if (dist[n] > 0x3f3f3f3f / 2) puts("impossible");
+    if (dist[n] > 0x3f3f3f3f / 2)   puts("impossible");
     else cout << dist[n] << endl;
 }
 int main() {
