@@ -1,3 +1,8 @@
 .vscode/c_cpp_properties.json
 .vscode/launch.json
 .vscode/tasks.json
+.vscode/tasks.json
+/vscode
+.gitignore
+.gitignore
+.vscode/launch.json
