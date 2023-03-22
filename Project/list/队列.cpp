@@ -10,7 +10,7 @@ int main()
         printf("请输入要打印的层数：");
 		scanf("%d", &n);
 		queue<int>q;//队列
-		q.push(1);//先把1放进去
+		q.push(1);//存1
 		for (int i = 1; i <= n; i++) { 
 			int front = q.front();
 			int back = q.back();
@@ -19,7 +19,6 @@ int main()
 			if (i == 1) {
 				for (int j = 0; j < n - i; j++)
 					cout << " ";
-                printf("%d",&q.front());
 				cout << q.front() << endl;
 				q.push(front);
 				q.push(back);
@@ -27,7 +26,7 @@ int main()
 				continue;
 			}
 			cnt = i - 1;
-			q.push(front);//进一次队头
+			q.push(front);//进队
 			for (int j = 0; j < n - i; j++)
 				cout << " ";
 			while (cnt--) {
