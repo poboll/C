@@ -19,6 +19,7 @@ int main()
 			if (i == 1) {
 				for (int j = 0; j < n - i; j++)
 					cout << " ";
+                printf("%d",&q.front());
 				cout << q.front() << endl;
 				q.push(front);
 				q.push(back);
