@@ -3,4 +3,10 @@
 .vscode/tasks.json
 .vscode/tasks.json
 /vscode
+<<<<<<< HEAD
 .vscode/c_cpp_properties.json
+=======
+.gitignore
+.gitignore
+.vscode/launch.json
+>>>>>>> 0a53523862ecdf9327892a8cd80a989b8a6d702b

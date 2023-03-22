@@ -7,13 +7,14 @@ bool st[N];     // 表示第二个集合中的每个点是否已经被遍历过
 
 bool find(int x)
 {
-    for (int i = h[x]; i != -1; i = ne[i])
+    for (int i = h[x]; i != -1; i = ne[i])  //扫描每个妹子
     {
         int j = e[i];
         if (!st[j])
+        //如果有暧昧并且还没有标记过(这里标记的意思是这次查找曾试图改变过该妹子的归属问题，但是没有成功，所以就不用瞎费工夫了）
         {
             st[j] = true;
-            if (match[j] == 0 || find(match[j]))
+            if (match[j] == 0 || find(match[j]))    //名花无主或者能腾出个位置来，这里使用递归
             {
                 match[j] = x;
                 return true;
