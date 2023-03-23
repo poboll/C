@@ -1,3 +1,4 @@
+//使用C++STL函数中queue函数实现
 #include <stdio.h>
 #include <iostream>
 #include <queue>
