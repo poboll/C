@@ -15,9 +15,10 @@ void dfs(int u) {
         return;
     }
     st[u] = 2;
-    dfs(u + 1);
-    st[u] = 0;
-    dfs(u + 1);
+    dfs(u + 1);//第一个分支：不选
+    st[u] = 0;//恢复现场
+    st[u] = 1;
+    dfs(u + 1);//第二个分支：选
     st[u] = 0;
 }
 int main() {
