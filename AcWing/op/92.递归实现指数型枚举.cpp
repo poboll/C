@@ -14,9 +14,14 @@ void dfs(int u) {
         printf("\n");
         return;
     }
+    st[u] = 2;
+    dfs(u + 1);
+    st[u] = 0;
+    dfs(u + 1);
+    st[u] = 0;
 }
 int main() {
     cin >> n;
-    dfs(0);//全局数组 省略
+    dfs(1);//全局数组 省略
     return 0;
 }
