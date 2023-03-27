@@ -27,8 +27,8 @@ void dfs(int u) {//u表示当前我们正在做第几位
 int main() {
     cin >> n;
     dfs(1);//st数组是全局的，不用传进去
-    for (int i = 0; i < ways.size(); i ++){
-        for (int j = 0; j < ways[i].size(); j ++ ) printf("%d ",ways[i][j]);
+    for(int i = 0; i < ways.size(); i ++) {
+        for(int j = 0; j < ways[i].size(); j ++ )   printf("%d ",ways[i][j]);
         puts("");//输出一个空字符串+换行
     }
     return 0;
