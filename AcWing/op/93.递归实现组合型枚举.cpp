@@ -32,28 +32,22 @@ using namespace std;
 const int N = 30;
 int n,m;
 int way[N];
-void dfs(int u,int start)//当前枚举到了哪一个位置、当前最小能够从哪一个数枚举 
-{
+void dfs(int u,int start) {//当前枚举到了哪一个位置、当前最小能够从哪一个数枚举 
 	//剪枝 
-	if(u+n-start<m) return;//已经选了u-1个数    假设把start到n所有选上(n-start+1)也不够m个数(<m)
-	
-	if(u==m+1)//表示枚举结束
-	{
+	if(u + n - start < m) return;//已经选了u-1个数    假设把start到n所有选上(n-start+1)也不够m个数(<m)
+	if(u == m + 1) {//表示枚举结束
 		for(int i=1;i<=m;i++) cout<<way[i]<<' ';
 		cout<<endl;
 		return;
 	}
-	for(int i=start;i<=n;i++)
-	{
+	for(int i = start; i <= n; i ++) {
 		way[u]=i;
 		dfs(u+1,i+1);
-		
 		way[u]=0;
 	}
 }
-int main()
-{
-    cin>>n>>m;
-    dfs(1,1);//初始从第1个位置开始枚举、最小能够枚举的数为1 
+int main() {
+    cin >> n >> m;
+    dfs(1, 1);//初始从第1个位置开始枚举、最小能够枚举的数为1 
     return 0;
 }
