@@ -28,28 +28,27 @@ n+(n−m)≤25
 #include<cstring>
 #include<algorithm>
 #include<cstdio>
-
 using namespace std;
 const int N = 29;
 int n,m;
-int env[N];
-void dfs(int loc,int sma)//当前枚举到了哪一个位置、当前最小能够从哪一个数枚举 
+int way[N];
+void dfs(int u,int start)//当前枚举到了哪一个位置、当前最小能够从哪一个数枚举 
 {
 	//剪枝 
-	if(loc+n-sma<m) return;//已经选了loc-1个数    假设把sma到n所有选上(n-sma+1)也不够m个数(<m)
+	if(u+n-start<m) return;//已经选了u-1个数    假设把start到n所有选上(n-start+1)也不够m个数(<m)
 	
-	if(loc==m+1)//表示枚举结束
+	if(u==m+1)//表示枚举结束
 	{
-		for(int i=1;i<=m;i++) cout<<env[i]<<' ';
+		for(int i=1;i<=m;i++) cout<<way[i]<<' ';
 		cout<<endl;
 		return;
 	}
-	for(int i=sma;i<=n;i++)
+	for(int i=start;i<=n;i++)
 	{
-		env[loc]=i;
-		dfs(loc+1,i+1);
+		way[u]=i;
+		dfs(u+1,i+1);
 		
-		env[loc]=0;
+		way[u]=0;
 	}
 }
 int main()
