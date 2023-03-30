@@ -41,7 +41,7 @@ void dfs(int u,int start) {//当前枚举到了哪一个位置、当前最小能
 	for(int i = start; i <= n; i ++) {
 		way[u]=i;
 		dfs(u+1,i+1);
-		way[u]=0;
+		way[u]=0;//恢复现场，可选
 	}
 }
 int main() {
