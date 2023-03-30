@@ -45,7 +45,7 @@ void dfs(int u,int start) {//当前枚举到了哪一个位置、当前最小能
 	}
 }
 int main() {
-    cin >> n >> m;
+    scanf("%d%d", &n, &m);//cin >> n >> m;
     dfs(1, 1);//初始从第1个位置开始枚举、最小能够枚举的数为1 
     return 0;
 }
