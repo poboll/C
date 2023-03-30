@@ -29,7 +29,7 @@ n+(n−m)≤25
 #include<algorithm>
 #include<cstdio>
 using namespace std;
-const int N = 29;
+const int N = 30;
 int n,m;
 int way[N];
 void dfs(int u,int start)//当前枚举到了哪一个位置、当前最小能够从哪一个数枚举 
