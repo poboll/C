@@ -35,7 +35,7 @@ void dfs(int u,int start) {//当前枚举到了哪一个位置、当前最小能
 	if(u + n - start < m) return;//已经选了u-1个数    假设把start到n所有选上(n-start+1)也不够m个数(<m)
 	if(u == m + 1) {//表示枚举结束
 		for(int i = 1; i <= m; i ++)   printf("%d ", way[i]);//cout << way[i] << ' ';
-		cout << endl;
+		puts("");//cout << endl;
 		return;
 	}
 	for(int i = start; i <= n; i ++) {
