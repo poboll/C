@@ -33,8 +33,8 @@ bool check(int a, int c) {
     if(c == 0 || a == 0 || b == 0)  return false;
     memcpy(backup, st, sizeof st);
     while(b) {
-        int x = b % 10;//个位 
-        b /= 10;
+        int x = b % 10;//取个位 
+        b /= 10;//个位删掉
         if(x == 0 || backup[x]) return false;//这个数为0或已经出现过 
         backup[x] = true;
     }
