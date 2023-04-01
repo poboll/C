@@ -30,7 +30,7 @@ bool backup[N];//备份
 int ans;//方案数 
 bool check(int a, int c) {
     int b = n * c - a * c;
-    if(c == 0 || a == 0 || b == 0)  return false;
+    if(c == 0 || a == 0 || b == 0)  return false;//if(!a || !b || !c)
     memcpy(backup, st, sizeof st);
     while(b) {
         int x = b % 10;//取个位 
@@ -46,7 +46,7 @@ bool check(int a, int c) {
 }
 void dfs_c(int u, int a, int c) {
     if(u == n)  return;//已经用完n个数字
-    if(check(a, c)) ans++;
+    if(check(a, c)) ans ++;
     for(int i = 1; i <= 9; i ++) {
         if(!st[i]) {
             st[i] = true;
@@ -57,7 +57,7 @@ void dfs_c(int u, int a, int c) {
 }
 void dfs_a(int u, int a) {//u是当前已经用了的数字 
     if(a >= n)  return;//无解，直接返回 
-    dfs_c(u, a, 0);//先枚举a再枚举c 
+    if(a)   dfs_c(u, a, 0);//先枚举a再枚举c a提前判
     for(int i = 1; i <= 9; i ++) {
         if(!st[i]) {
             st[i] = true;
