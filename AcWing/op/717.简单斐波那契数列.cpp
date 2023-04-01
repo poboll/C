@@ -15,17 +15,17 @@
 */
 #include<iostream>
 using namespace std;
-int main()
-{
+int main() {
     int n;
-    cin>>n;
-    int a=0,b=1;
-    for(int i=0;i<n;i++)
-    {
-        cout<<a<<' ';
-        int c=a+b;
-        a=b,b=c;
+    cin >> n;
+    int a = 0, b = 1;
+    for(int i = 0; i < n; i ++) {
+        cout << a << ' ';
+        int fn = a + b;
+        a = b, b = fn;
     }
-    cout<<endl;
+    cout << endl;
     return 0;
 }
+/*
+*/
