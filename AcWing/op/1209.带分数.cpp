@@ -62,24 +62,21 @@ void dfs_c(int u,int a,int c)
         }
     }
 }
-void dfs_a(int u,int a)//u是当前已经用了的数字 
+void dfs_a(int u, int a)//u是当前已经用了的数字 
 {
-    if(a>=n) return;//无解，直接返回 
-    dfs_c(u,a,0);//先枚举a再枚举c 
-    for(int i=1;i<=9;i++)
-    {
-        if(!st[i])
-        {
-            st[i]=true;
-            dfs_a(u+1,a*10+i);
-            st[i]=false;
+    if(a >= n)  return;//无解，直接返回 
+    dfs_c(u, a, 0);//先枚举a再枚举c 
+    for(int i = 1; i <= 9; i ++) {
+        if(!st[i]) {
+            st[i] = true;
+            dfs_a(u+1, a * 10 + i);
+            st[i] = false;
         }
     }
 }
-int main()
-{
-    scanf("%d",&n);
-    dfs_a(0,0);//u是当前已经用了多少数字，一个数也没用，a是0 
-    cout<<ans<<endl;
+int main() {
+    scanf("%d", &n);
+    dfs_a(0, 0);//u是当前已经用了多少数字，一个数也没用，a是0 
+    cout << ans << endl;
     return 0;
 }
