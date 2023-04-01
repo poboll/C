@@ -23,26 +23,22 @@
 #include<iostream>
 #include<algorithm>
 using namespace std;
-const int N=20;
+const int N = 20;
 int n;
 bool st[N];//判重数组
 bool backup[N];//备份 
 int ans;//方案数 
-bool check(int a,int c)
-{
-
-    int b=n*c-a*c;
-    if(c==0||a==0||b==0) return false;
-    memcpy(backup,st,sizeof st);
-    while(b)
-    {
-        int x=b%10;//个位 
-        b/=10;
-        if(x==0||backup[x]) return false;//这个数为0或已经出现过 
-        backup[x]=true;
+bool check(int a, int c) {
+    int b = n * c - a * c;
+    if(c == 0 || a == 0 || b == 0)  return false;
+    memcpy(backup, st, sizeof st);
+    while(b) {
+        int x = b % 10;//个位 
+        b /= 10;
+        if(x == 0 || backup[x]) return false;//这个数为0或已经出现过 
+        backup[x] = true;
     }
-    for(int i=1;i<=9;i++)
-    {
+    for(int i = 1; i <= 9; i ++) {
         if(!backup[i])//1~9没用完全出现 
         return false;
     }
