@@ -48,28 +48,24 @@ bool check(int a,int c)
     }
     return true;
 }
-void dfs_c(int u,int a,int c)
-{
-    if(u==n) return;//已经用完n个数字
-    if(check(a,c)) ans++;
-    for(int i=1;i<=9;i++)
-    {
-        if(!st[i])
-        {
-            st[i]=true;
-            dfs_c(u+1,a,c*10+i);
-            st[i]=false;
+void dfs_c(int u, int a, int c) {
+    if(u == n)  return;//已经用完n个数字
+    if(check(a, c)) ans++;
+    for(int i = 1; i <= 9; i ++) {
+        if(!st[i]) {
+            st[i] = true;
+            dfs_c(u + 1, a, c * 10 + i);
+            st[i] = false;
         }
     }
 }
-void dfs_a(int u, int a)//u是当前已经用了的数字 
-{
+void dfs_a(int u, int a) {//u是当前已经用了的数字 
     if(a >= n)  return;//无解，直接返回 
     dfs_c(u, a, 0);//先枚举a再枚举c 
     for(int i = 1; i <= 9; i ++) {
         if(!st[i]) {
             st[i] = true;
-            dfs_a(u+1, a * 10 + i);
+            dfs_a(u + 1, a * 10 + i);
             st[i] = false;
         }
     }
