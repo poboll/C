@@ -82,13 +82,13 @@ void turn(int x, int y) {
 int main() {
     cin >> n;
     while(n --) {
-        for(int i = 0; i < 5; i++)  cin >> g[i];
+        for(int i = 0; i < 5; i ++)  cin >> g[i];
         int res = 10; // 记录结果
         // 枚举第一行所有的按开关或不按开关的状态，1:按开关  0:不按开关
         for(int i = 0; i < 32; i ++) {
             int step = 0; //记录步数
             // 先将当前数组备份到backup数组中,因为每次遍历第一行，要使用原始数组来遍历
-            memcpy(backup , g , sizeof g);
+            memcpy(backup, g, sizeof g);
             // 看第一行的第j列是否需要按开关
             for(int j = 0; j < 5; j++) {
                 if(i >> j & 1) { // 如果第j位是1的话,就需要按开关,否则不按开关
@@ -96,16 +96,12 @@ int main() {
                     turn(0, j); // 按开关
                 }
             }
-            
             // 遍历其他行，由于其他行是否按开关都只与上一行有关，所以只遍历0~4行即可
-            for(int i = 0; i < 4; i++)
-            {
-                for(int j = 0; j < 5; j++)
-                {
-                    if(g[i][j] == '0') // 如果第i行j类是关灯状态，那么就必须按第i+1行j列的开关
-                    {
-                        step++;
-                        turn(i + 1 , j);
+            for(int i = 0; i < 4; i ++) {
+                for(int j = 0; j < 5; j ++) {
+                    if(g[i][j] == '0') {// 如果第i行j类是关灯状态，那么就必须按第i+1行j列的开关
+                        step ++;
+                        turn(i + 1, j);
                     }
                 }
             }
