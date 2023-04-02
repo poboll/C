@@ -69,9 +69,9 @@
 using namespace std;
 const int N = 510;
 int n;
-char g[N][N] , backup[N][N]; //backup是备份数组
-void turn(int x , int y) {
-    int dx[5] = {0, 1, 0, -1, 0} , dy[5] = {1, 0, -1, 0, 0};
+char g[N][N], backup[N][N]; //backup是备份数组
+void turn(int x, int y) {
+    int dx[5] = {0, 1, 0, -1, 0}, dy[5] = {1, 0, -1, 0, 0};
     for(int i = 0; i < 5; i ++) {
         int a = x + dx[i], b = y + dy[i];
         if(a < 0 || a >= 5 || b < 0 || b >= 5)  continue;
