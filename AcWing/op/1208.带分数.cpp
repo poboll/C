@@ -30,7 +30,6 @@ o****o****
 #include <algorithm>
 #include <cstring>
 using namespace std;
-
 const int N = 110;
 char start[N], aim[N];
 int n, res;
