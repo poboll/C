@@ -18,55 +18,57 @@
 1
 输出样例2：
 6*/
+#include<cstdio>
+#include<cstring>
 #include<iostream>
 #include<algorithm>
-#include<cstring>
-#include<cmath>
-#include<vector>
-#include<stack>
-#include<queue>
-#include<sstream>
 using namespace std;
 const int N = 20;
 int n;
-int used[N];
-int way[N];
-double a, b, c;
-int times;
-double cal(int start,int end) {
-    double num = 0;
-    for (int i = start; i <= end; i++) {
-        num = num * 10 + way[i];
+bool st[N];//判重数组
+bool backup[N];//备份 
+int ans;//方案数 
+bool check(int a, int c) {
+    int b = n * c - a * c;
+    if(c == 0 || a == 0 || b == 0)  return false;//if(!a || !b || !c)
+    memcpy(backup, st, sizeof st);
+    while(b) {
+        int x = b % 10;//取个位 
+        b /= 10;//个位删掉
+        if(x == 0 || backup[x]) return false;//这个数为0或已经出现过 
+        backup[x] = true;
     }
-    return num;
+    for(int i = 1; i <= 9; i ++) {
+        if(!backup[i])//1~9没用完全出现 
+        return false;
+    }
+    return true;
 }
-//假如说从1-3都是a，那么a有3个数，分别是345，i=1:3   i=2:3*10+4=34 i=2:34*10+5=345  
-void dfs(int u) {
-    if (u > 9) {
-        for (int i = 1; i <= 7; i++) {
-            for (int j = i + 1; j <= 8; j++) {
-                a = cal(1,i);
-                b = cal(i+1,j); 
-                c = cal(j + 1, 9);
-//注意这里abc三个数的边界，之前填错了导致有的情况被漏掉了
-                if (a*c + b == n*c) {
-                    times++;
-                }
-            }
+void dfs_c(int u, int a, int c) {
+    if(u == n)  return;//已经用完n个数字
+    if(check(a, c)) ans ++;
+    for(int i = 1; i <= 9; i ++) {
+        if(!st[i]) {
+            st[i] = true;
+            dfs_c(u + 1, a, c * 10 + i);
+            st[i] = false;
         }
     }
-    for (int i = 1; i <= 9; i++) {
-        if (used[i] == 0) {
-            way[u] = i;
-            used[i] = 1;
-            dfs(u + 1);
-            way[u] = 0;//恢复现场
-            used[i] = 0;
+}
+void dfs_a(int u, int a) {//u是当前已经用了的数字 
+    if(a >= n)  return;//无解，直接返回 
+    if(a)   dfs_c(u, a, 0);//先枚举a再枚举c a提前判
+    for(int i = 1; i <= 9; i ++) {
+        if(!st[i]) {
+            st[i] = true;
+            dfs_a(u + 1, a * 10 + i);
+            st[i] = false;
         }
     }
 }
 int main() {
-    cin >> n;
-    dfs(1);
-    cout<<times;
+    scanf("%d", &n);
+    dfs_a(0, 0);//u是当前已经用了多少数字，一个数也没用，a是0 
+    cout << ans << endl;
+    return 0;
 }
