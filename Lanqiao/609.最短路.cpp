@@ -6,8 +6,8 @@
 运行限制
 最大运行时间：1s
 最大运行内存: 128M*/
-#include<stdio.h>
-#include<stdlib.h>
+#include <stdio.h>
+#include <stdlib.h>
 #define  inf 99999999
 
 int e[20][20];
