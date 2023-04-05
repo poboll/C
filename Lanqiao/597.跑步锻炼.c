@@ -6,7 +6,7 @@
 运行限制
 最大运行时间：1s
 最大运行内存: 128M*/
-#include<stdio.h>//依次判断年月日周 
+#include <stdio.h>//依次判断年月日周 
 int main() {
     int months[13] = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
     int year, month, day;
