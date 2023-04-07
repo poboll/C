@@ -9,28 +9,21 @@
 #include <stdio.h>
 #include <stdlib.h>
 #define  inf 99999999
-
 int e[20][20];
-
-void add(char A1, char A2, int c)
-{
+void add(char A1, char A2, int c) {
 	int a = A1 - 'A' + 1;
 	int b = A2 - 'A' + 1;
 	e[a][b] = c;
 	e[b][a] = c;
 }
-
-int main(void)
-{
+int main(void) {
 	int i, j, u, v;
 	int n = 19;
 	int dis[20] = {0};
 	int book[20] = { 0 };
 	// 初始化图 
-	for (i = 1;i <= n;i++)
-	{
-		for (j = 1;j <= n;j++)
-		{
+	for (i = 1;i <= n;i ++) {
+		for (j = 1;j <= n;j ++) {
 			if (i == j)
 				e[i][j] = 0;
 			else
@@ -75,36 +68,27 @@ int main(void)
 	add('O', 'Q', 1);
 	add('O', 'R', 3);
 	add('R', 'S', 1);
-	
-	for (i = 1;i <= n;i++)
-	{
+	for (i = 1;i <= n;i ++) {
 		dis[i] = e[1][i];
 	}
 	book[1] = 1;
 	// 核心部分
-	for (i = 1;i <= n;i++)
-	{
+	for (i = 1;i <= n;i ++) {
 		int min = inf;
-		for (j = 1;j <= n;j++)
-		{
-			if (book[j] == 0 && dis[j] < min)
-			{
+		for (j = 1;j <= n;j ++) {
+			if (book[j] == 0 && dis[j] < min) {
 				min = dis[j];
 				u = j;
 			}
 		}
 		// 松弛
 		book[u] = 1;
-		for (v = 1;v <= n;v++)
-		{
-			if (dis[v] > dis[u] + e[u][v] && e[u][v] < inf)
-			{
+		for (v = 1;v <= n;v ++) {
+			if (dis[v] > dis[u] + e[u][v] && e[u][v] < inf) {
 				dis[v] = dis[u] + e[u][v];
 			}
 		}
 	}
-	
 	printf("%d", dis[19]);
-	
 	return 0;
 }
