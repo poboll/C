@@ -11,7 +11,7 @@ Time Limit: 1000MS
 Memory Limit: 20MB*/
 /*如果1s的时限给数据范围是10的7或8次方的话一般只能用O（n）的算法
 对于上面的题，10的9次方10组数据，也就是10的10次方的时间，这样子1s是不可行的*/
-#include<iostream>
+#include <iostream>
 using namespace std;
 const int max1 = 1000000;
 const int max2 = 1000000000;
