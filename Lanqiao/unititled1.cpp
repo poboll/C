@@ -31,7 +31,7 @@ int main() {
     int i;
     int str[max3][3];
     cin >> t;
-    for (i = 0; i < t; i++) {
+    for (i = 0; i < t; i ++) {
         cin >> a >> b >> c >> k;
             Yoriko(a,b,c,k);
             str[i][0] = a;
