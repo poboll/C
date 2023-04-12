@@ -36,13 +36,11 @@ bool IsPrime(int x) {//判断是否是质数,是返回true,不是返回false
 int main() {
     int n;
     cin >> n;
-   
-    while(n--)
-    {
+    while(n --) {
         int x;
         cin >> x;
-        if(IsPrime(x)) cout << "Yes" << endl;
+        if(IsPrime(x))  cout << "Yes" << endl;
         else cout << "No" << endl;
     }
     return 0;
-}//该代码引用AcWing网站代码
+}
