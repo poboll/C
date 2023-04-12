@@ -28,7 +28,7 @@ using namespace std;
 
 bool IsPrime(int x)//判断是否是质数,是返回true,不是返回false
 {<!-- -->
-    if (x < 2) return false;//直接排除小于2的数
+    if (x < 2)  return false;//直接排除小于2的数
     else
     {<!-- -->
         for (int i = 2; i <= x / i; i ++ )
