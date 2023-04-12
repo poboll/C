@@ -33,12 +33,12 @@ int main() {
     cin >> t;
     for (i = 0; i < t; i ++) {
         cin >> a >> b >> c >> k;
-            Yoriko(a,b,c,k);
+            Yoriko(a, b, c, k);
             str[i][0] = a;
             str[i][1] = b;
             str[i][2] = c;
         }
-        for (i = 0; i < t; i++) {
+        for (i = 0; i < t; i ++) {
             cout << str[i][0] << " " << str[i][1] << " " << str[i][2] << endl;
         }
 }
