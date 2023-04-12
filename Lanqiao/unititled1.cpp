@@ -19,7 +19,7 @@ const int max3 = 10;
 void Yoriko(int &a, int &b, int &c, int &k) {
     int i;
     for (i = 0; i < k; i++) {
-        if(a==b&&b==c) break;
+        if(a == b && b == c)    break;
         if (a > b) a = a - b;
         if (b > c) b = b - c;
         if (c > a)c = c - a;
