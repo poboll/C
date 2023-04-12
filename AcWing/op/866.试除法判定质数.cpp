@@ -23,11 +23,8 @@ No*/
 ①i <= sqrt(x) ：在执行每次循环的时候都要计算一遍平方根会浪费时间；
 ②i * i <= x ：当i的值很接近整形最大值的时候i * i就超范围溢出了。*/
 #include <iostream>
-
 using namespace std;
-
-bool IsPrime(int x)//判断是否是质数,是返回true,不是返回false
-{
+bool IsPrime(int x) {//判断是否是质数,是返回true,不是返回false
     if (x < 2)  return false;//直接排除小于2的数
     else {
         for (int i = 2; i <= x / i; i ++ ) {
