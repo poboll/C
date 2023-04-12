@@ -38,9 +38,9 @@ int main() {
     cin >> n;
     while(n --) {
         int x;
-        cin >> x;
-        if(IsPrime(x))  cout << "Yes" << endl;
-        else cout << "No" << endl;
+        cin >> x; //scanf("%d", &a);
+        if(IsPrime(x))  cout << "Yes" << endl; //printf("Yes\n");
+        else cout << "No" << endl; //else printf("No\n");
     }
     return 0;
 }
