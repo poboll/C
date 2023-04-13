@@ -14,6 +14,7 @@
 */
 #include <iostream>
 using namespace std;
+
 typedef struct Node {//定义结构
     char data;
     struct Node *lchild,*rchild;
