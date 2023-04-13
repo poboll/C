@@ -1,5 +1,5 @@
 /*实验三：二叉树
-（一）用递归的方法实现以下算法：
+用递归的方法实现以下算法：
 1、以二叉链表表示二叉树，建立一棵二叉树（算法5.3）；
 2、输出二叉树的中序遍历结果（算法5.1）；
 3、输出二叉树的前序遍历结果（见样例）；
@@ -79,8 +79,7 @@ int NodeCount(BiTree T)
     if(T==NULL) return 0;
     else return NodeCount(T->lchild)+NodeCount(T->rchild)+1;
 }
-int LeafCount(BiTree T)
-{//统计二叉树中叶子结点的个数
+int LeafCount(BiTree T) {//统计二叉树中叶子结点的个数
     if(!T) return 0;
     if(!T->lchild &&!T->rchild){//如果二叉树左子树和右子树皆为空,说明该二叉树根节点为叶子节点,加1.
         return 1;
@@ -88,16 +87,14 @@ int LeafCount(BiTree T)
         return LeafCount(T->lchild)+LeafCount(T->rchild);
     }
 }
-int Node_1_Count(BiTree T)
-{//统计二叉树的度为1的结点个数
+int Node_1_Count(BiTree T) {//统计二叉树的度为1的结点个数
     if(!T) return 0;
     if((!T->lchild)&&(T->rchild)||(T->lchild)&&(!T->rchild))
         return 1 + Node_1_Count(T->lchild) + Node_1_Count(T->rchild);
     else
         return Node_1_Count(T->lchild) + Node_1_Count(T->rchild);
 }
-void PrintAllPath(BiTree T, char path[], int pathlen)
-{//二叉树中从每个叶子结点到根结点的路径
+void PrintAllPath(BiTree T, char path[], int pathlen) {//二叉树中从每个叶子结点到根结点的路径
   int i;
   if(T != NULL) {
     path[pathlen] = T->data; //将当前结点放入路径中
@@ -105,14 +102,13 @@ void PrintAllPath(BiTree T, char path[], int pathlen)
         for(i = pathlen; i >= 0; i--)
             cout << path[i] << " " ;
       cout << endl;
-    }else{
+    }else {
       PrintAllPath(T->lchild, path, pathlen + 1);
       PrintAllPath(T->rchild, path, pathlen + 1);
     }
   }
 }
-void ExChangeTree(BiTree &T)
-{//构造函数，使用递归算法进行左右结点转换
+void ExChangeTree(BiTree &T) {//构造函数，使用递归算法进行左右结点转换
     BiTree temp;
     if(T!=NULL){//判断T是否为空，非空进行转换，否则不转换
         temp=T->lchild;
@@ -122,8 +118,7 @@ void ExChangeTree(BiTree &T)
         ExChangeTree(T->rchild);
     }
 }
-void DblOrderTraverse(BiTree T)
-{//二叉树的双序遍历
+void DblOrderTraverse(BiTree T) {//二叉树的双序遍历
     if(T)
     {
         cout<<T->data;
@@ -132,8 +127,7 @@ void DblOrderTraverse(BiTree T)
         DblOrderTraverse(T->rchild);
     }
 }
-int main()
-{
+int main() {
     BiTree T;
     //测试例子AB#CD##E##F#GH###
     cout<<"先序遍历输入(以#结束):";
