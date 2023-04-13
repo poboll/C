@@ -132,25 +132,24 @@ int main() {
     //测试例子AB#CD##E##F#GH###
     cout<<"先序遍历输入(以#结束):";
     CreateBiTree(T);
-    cout<<"中序遍历输出:";
+    cout<<"二叉树的中序遍历结果:";
     InOrderTraverse(T);
-    cout<<endl<<"先序遍历输出:";
+    cout<<endl<<"二叉树的前序遍历结果:";
     PreOrderTraverse(T);
-    cout<<endl<<"后序遍历输出:";
+    cout<<endl<<"二叉树的后序遍历结果:";
     PostOrderTraverse(T);
-    cout<<endl<<"树的深度:"<<Depth(T);
-    cout<<endl<<"结点的个数:"<<NodeCount(T);
-    cout<<endl<<"叶结点的个数:"<<LeafCount(T);
-    cout<<endl<<"度为1的结点个数:"<<Node_1_Count(T);
-    cout<<endl<<"二叉树中从每个叶子结点到根结点的所有路径："<<endl;
+    cout<<endl<<"二叉树的深度:"<<Depth(T);
+    cout<<endl<<"二叉树的结点个数:"<<NodeCount(T);
+    cout<<endl<<"二叉树的叶结点个数:"<<LeafCount(T);
+    cout<<endl<<"二叉树的度为1的结点个数:"<<Node_1_Count(T);
+    cout<<endl<<"二叉树中从每个叶子结点到根结点的路径:"<<endl;
     char path[256];
     int pathlen=0;
-    PrintAllPath(T,path,pathlen);//
-    //交换二叉树每个结点的左孩子和右孩子
-    BiTree tem=T;//直接复制一颗树，在不改变原树的前提下，对临时树进行交换。
-    ExChangeTree(tem);
+    PrintAllPath(T,path,pathlen);//交换二叉树每个结点的左孩子和右孩子
+    BiTree roaming=T;//临时树
+    ExChangeTree(roaming);
     cout<<"先序遍历输出交换后的结果:";
-    PreOrderTraverse(tem);
+    PreOrderTraverse(roaming);
     cout<<endl<<"双序遍历输出:";
     DblOrderTraverse(T);
     return 0;
