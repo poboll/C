@@ -14,46 +14,38 @@
 */
 #include <iostream>
 using namespace std;
-typedef struct Node
-{//定义二叉树结构
+typedef struct Node {//定义结构
     char data;
     struct Node *lchild,*rchild;
 }*BiTree,BiTNode;
 
-void CreateBiTree(BiTree &T)
-{//先序创建二叉树
+void CreateBiTree(BiTree &T) {//先序创建
     char ch;
     cin>>ch;
     if(ch=='#') T=NULL;
-    else{
+    else {
         T=new BiTNode;
         T->data=ch;
         CreateBiTree(T->lchild);
         CreateBiTree(T->rchild);
     }
 }
-void InOrderTraverse(BiTree T)
-{//中序遍历
-    if(T)
-    {
+void InOrderTraverse(BiTree T) {//中序遍历
+    if(T) {
         InOrderTraverse(T->lchild);
         cout<<T->data;
         InOrderTraverse(T->rchild);
     }
 }
-void PreOrderTraverse(BiTree T)
-{//先序遍历
-    if(T)
-    {
+void PreOrderTraverse(BiTree T) {//先序遍历
+    if(T) {
         cout<<T->data;
         PreOrderTraverse(T->lchild);
         PreOrderTraverse(T->rchild);
     }
 }
-void PostOrderTraverse(BiTree T)
-{//后序遍历
-    if(T)
-    {
+void PostOrderTraverse(BiTree T) {//后序遍历
+    if(T) {
         PostOrderTraverse(T->lchild);
         PostOrderTraverse(T->rchild);
         cout<<T->data;
@@ -72,12 +64,10 @@ void Copy(BiTree T,BiTree &NewT)
         Copy(T->rchild,NewT->rchild);
     }
 }
-int Depth(BiTree T)
-{//树的深度
+int Depth(BiTree T) {//树的深度
     if(T==NULL)
         return 0;
-    else
-    {
+    else {
         int m=Depth(T->lchild);
         int n=Depth(T->rchild);
         if(m>n) return (m+1);
