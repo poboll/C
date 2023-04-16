@@ -23,20 +23,24 @@ T_T
 内存限制
 64 MB*/
 #include <stdio.h>
-int main() {
+int main(void) {
     int m, n, temp;
     scanf("%d%d", &m, &n);
-    if(m > n) {
-        temp = m;
-        printf("%d", temp);
-    }else {
-        temp = n;
-        printf("%d", temp);
-    }
     if(m + n > 0) {
-        printf("^_^");
+        if(m > n) {
+            printf("%d %d\n^_^", m, m + n);
+        }else {
+            printf("%d %d\n^_^", n, m + n);
+        }      
     }else {
-        printf("T_T");
+        if(m < 0 && n < 0) {
+            printf("T_T");
+        }else if(m < 0) {
+            printf("%d 0\nT_T", n);
+        }else {
+            printf("%d 0\nT_T", m);
+        }
+        
     }
     return 0;
 }
