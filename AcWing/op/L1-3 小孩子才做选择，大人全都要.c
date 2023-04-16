@@ -38,5 +38,5 @@ int main() {
     }else {
         printf("T_T");
     }
-
+    return 0;
 }
