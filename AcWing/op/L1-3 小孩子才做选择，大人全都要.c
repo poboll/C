@@ -24,8 +24,14 @@ T_T
 64 MB*/
 #include <stdio.h>
 int main() {
-    int m, n;
+    int m, n, temp;
     scanf("%d%d", &m, &n);
+    if(m > n) {
+        temp = m;
+        printf("%d", temp);
+    }else {
+        temp = n;
+    }
     if(m + n > 0) {
         printf("^_^");
     }else {
