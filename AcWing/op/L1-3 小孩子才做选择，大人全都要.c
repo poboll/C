@@ -31,6 +31,7 @@ int main() {
         printf("%d", temp);
     }else {
         temp = n;
+        printf("%d", temp);
     }
     if(m + n > 0) {
         printf("^_^");
