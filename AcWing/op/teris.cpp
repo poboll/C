@@ -4,13 +4,11 @@
 #include <windows.h>                                      
 #include <conio.h>
 #include <time.h>
-
 /*******宏 定 义*******/
 #define FrameX 13                   
 #define FrameY 3
 #define Frame_hight 20                       
 #define Frame_width 18
-
 /*******定 义 全 局 变 量*******/ 
 int a[80][80]={0}/*存储每个坐标的状态*/,gr=1/*游戏结束标注*/,co[80][80]={0}/*储存对应的颜色*/;                                                 //0 空白, 1 块 2 墙
 int speed=200 /*速度*/, score = 0 /*得分*/, highest=0  /*最高得分*/, m=0 /*是否第一个生成的方块*/;
@@ -21,7 +19,6 @@ struct Tetris{//声明俄罗斯方块的结构体
 	int color;//方块类型的颜色
 	int next;//下一个俄罗斯方块类型的序号
 };
-
 /*******函 数 声 明*******/ 
 void gotoxy(int x, int y);
 void DrawGameframe();
