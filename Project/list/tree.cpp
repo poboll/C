@@ -2,88 +2,104 @@
 
 #include <iostream>
 #include <string>
-//#include <windows.h>
+// #include <windows.h>
 #include <stdlib.h>
 
 using namespace std;
 
 typedef double DataType;      // 权值的数据类型
 typedef char **HuffmanEncode; // 二级指针进行编码存储操作（相当于利用二维数组存储一样）
+
+// 哈夫曼树的存储结构
 typedef struct
 {
-    DataType weight;
-    int parent, rchild, lchild;
+    char data;                  // 存储数据
+    int weight;                 // 结点的权重
+    string num;                 // 存放哈夫曼码
+    int parent, rchild, lchild; // 结点的双亲、左孩子、右孩子的下标
 } HTNode, *HuffmanTree;
 
-// 挑选权最小的两个结点
-void SelectNode(HuffmanTree &HT, int n, int &one, int &two)
+// 两个最小结点
+typedef struct
 {
-    int min;
+    int s1;
+    int s2;
+} MIN;
+
+// 挑选权最小的两个结点
+MIN SelectNode(HuffmanTree &HT, int n)
+{
+    int min, secmin, s1, s2;
+    min = 0x3f3f3f3f;
+    secmin = 0x3f3f3f3f;
+    MIN code;
+    s1 = 1;
+    s2 = 1;
     // 找第一个最小权结点
     for (int i = 1; i <= n; i++)
     {
-        if (HT[i].parent == 0)
+        if (HT[i].parent == 0 && (HT[i].weight < min))
         {
-            min = i;
-            break; // 注意这里一定要退出，只是为了找到一个未进行构造哈夫曼树的叶子结点而已
+            min = HT[i].weight;
+            s1 = i;
         }
     }
     for (int i = min + 1; i <= n; i++)
     {
-        if (HT[i].parent == 0 && HT[i].weight < HT[min].weight)
-        {
-            min = i;
-        }
+        if (HT[i].parent == 0 && (HT[i].weight < secmin) && (i != s1))
+            {
+                secmin = HT[i].weight;
+                s2 = i;
+            }
     }
-    one = min;
-    // 找第二个较小权的结点
-    for (int i = 1; i <= n; i++)
+    code.s1 = s1;
+    code.s2 = s2;
+    return code;
+}
+
+// 将哈夫曼码存储在结构体num中
+void putlorinnum(HuffmanTree &hft, int num)
+{
+    for (int i = num; i >= 1; i--)
     {
-        if (HT[i].parent == 0 && i != one)
+        if (hft[hft[i].parent].parent)
         {
-            min = i;
-            break; // 注意这里一定要退出
+            hft[i].num = hft[hft[i].parent].num + hft[i].num;
         }
     }
-    for (int i = min + 1; i <= n; i++)
-    {
-        if (HT[i].parent == 0 && HT[i].weight < HT[min].weight && i != one)
-        {
-            min = i;
-        }
-    }
-    two = min;
 }
 
 // 创建哈夫曼树
-void CreatHuffman(HuffmanTree &HT, DataType *w, int n)
+void CreatHuffman(HuffmanTree &HT, int num)
 {
-    int m = 2 * n - 1; // 哈夫曼树的结点个数
-    HT = new HTNode[m + 1];
-    // 开辟m+1个结点，下标为0的位置不存放数据，以防判断根节点和叶子节点时发生混淆
-
-    // 赋值权
-    for (int i = 1; i <= n; i++)
+    int m = 2 * num - 1;    // 哈夫曼树的结点个数
+    HT = new HTNode[m + 1]; // 开辟m+1个结点，下标为0的位置不存放数据，以防判断根节点和叶子节点时发生混淆
+    // 初始化
+    for (int i = 1; i <= m; i++)
     {
-        HT[i].weight = w[i - 1];
+        HT[i].parent = 0;
         HT[i].lchild = 0;
         HT[i].rchild = 0;
-        HT[i].parent = 0;
+    }
+    cout << "请输入各个结点的权:" << endl;
+    for (int i = 1; i <= num; i++)
+    {
+        cin >> HT[i].weight;
     }
 
-    for (int i = n + 1; i <= m; i++)
+    for (int i = num + 1; i <= m; i++) // 构建哈夫曼树
     {
-        int one, two;                    // 挑选出权值最小的两个结点
-        SelectNode(HT, i - 1, one, two); // 在1到i-1内查找最小两个的权结点的下标
+        MIN min;                     // 挑选出权值最小的两个结点，这里使用结构体储存数据
+        min = SelectNode(HT, i - 1); // 在1到i-1内查找最小两个的权结点的下标
 
-        HT[i].weight = HT[one].weight + HT[two].weight;
-        HT[i].parent = 0;
-
-        HT[i].lchild = one;
-        HT[i].rchild = two;
-
-        HT[one].parent = i;
-        HT[two].parent = i;
+        HT[min.s1].parent = i;
+        HT[min.s2].parent = i;
+        HT[i].lchild = min.s1;
+        HT[min.s1].num = "0";
+        HT[i].rchild = min.s2;
+        HT[min.s2].num = "1";
+        HT[i].weight = HT[min.s1].weight + HT[min.s2].weight;
+        HT[i].data = -1;
     }
 }
 
@@ -144,24 +160,24 @@ void Print(HuffmanTree HT, int n)
     }
 }
 
-// 进行译码
+// 进行解码
 void Interpretation(HuffmanTree HT, int n)
 {
     string code;
     int m = 2 * n - 1;
     int i;
     int j = 0;
-    cout << "请输入要进行译码的二进制串(以#为结束标志):";
+    cout << "请输入要进行解码的二进制串(以#结束):";
     cin >> code;
     while (code[j] != '#') // 二进制译码以#为结束标志
     {
         i = m; // 第一个根节点的下标
         while (HT[i].lchild != 0 && HT[i].rchild != 0)
         {
-            if (code[j] == '0') // 左子树
+            if (code[j] == '0') // 转到左子节点
                 i = HT[i].lchild;
             else
-                i = HT[i].rchild; // 右子树
+                i = HT[i].rchild; // 转到右子节点
             ++j;                  // 记录字符串解码的位置
         }
         cout << HT[i].weight << endl;
@@ -197,14 +213,9 @@ int main(void)
     cout << "请输入结点的个数：";
     cin >> n;
     weight = new DataType[n];
-    cout << "请输入各个结点的权:" << endl;
-    for (int i = 0; i < n; i++)
-    {
-        cin >> s;
-        weight[i] = s;
-    }
-    CreatHuffman(HT, weight, n); // 创建哈夫曼树
-    Encode(HT, HD, n);           // 进行编码
+
+    CreatHuffman(HT, n); // 创建哈夫曼树
+    Encode(HT, HD, n);     // 进行编码
 
     test();
     while (choice)
