@@ -1,7 +1,7 @@
 #define _CRT_SECURE_NO_WARNINGS 1
 
 #include <iostream>
-#include <string>
+#include <string.h>
 // #include <windows.h>
 #include <stdlib.h>
 
@@ -47,10 +47,10 @@ MIN SelectNode(HuffmanTree &HT, int n)
     for (int i = min + 1; i <= n; i++)
     {
         if (HT[i].parent == 0 && (HT[i].weight < secmin) && (i != s1))
-            {
-                secmin = HT[i].weight;
-                s2 = i;
-            }
+        {
+            secmin = HT[i].weight;
+            s2 = i;
+        }
     }
     code.s1 = s1;
     code.s2 = s2;
@@ -80,6 +80,7 @@ void CreatHuffman(HuffmanTree &HT, int num)
         HT[i].parent = 0;
         HT[i].lchild = 0;
         HT[i].rchild = 0;
+        HT[i].data = 'a' + i - 1;
     }
     cout << "请输入各个结点的权:" << endl;
     for (int i = 1; i <= num; i++)
@@ -100,6 +101,15 @@ void CreatHuffman(HuffmanTree &HT, int num)
         HT[min.s2].num = "1";
         HT[i].weight = HT[min.s1].weight + HT[min.s2].weight;
         HT[i].data = -1;
+    }
+    putlorinnum(HT, m);
+    for (int i = 1; i <= m; i++) // 进行每个字符哈夫曼码的输出
+    {
+        if (HT[i].data != -1)
+        {
+            cout << HT[i].data << " 权重为" << HT[i].weight << "  ，哈夫曼码为：" << HT[i].num << endl;
+            cout << endl;
+        }
     }
 }
 
@@ -138,8 +148,9 @@ void PrintCode(HuffmanTree HT, HuffmanEncode HD, int n)
 {
     for (int i = 1; i <= n; i++)
     {
+        HT[i].data = 'a' + i - 1;
         string s(HD[i]);
-        cout << "权 " << HT[i].weight << " 的哈夫曼编码为: "
+        cout << HT[i].data << " 权重为 " << HT[i].weight << ",哈夫曼编码为: "
              << s << endl;
     }
 }
@@ -147,11 +158,13 @@ void PrintCode(HuffmanTree HT, HuffmanEncode HD, int n)
 // 打印哈夫曼树
 void Print(HuffmanTree HT, int n)
 {
-    cout << "下标\t权\t父节点\t左孩子\t右孩子\t" << endl;
-    cout << "0\t0\t0\t0\t0\t" << endl;
+    cout << "下标\t字符\t权\t父节点\t左孩子\t右孩子\t" << endl;
+    cout << "-\t-\t-\t-\t-\t" << endl;
     for (int i = 1; i <= 2 * n - 1; i++)
     {
+        HT[i].data = 'a' + i - 1;
         cout << i << "\t"
+             << HT[i].data << "\t"
              << HT[i].weight << "\t"
              << HT[i].parent << "\t"
              << HT[i].lchild << "\t"
@@ -215,7 +228,7 @@ int main(void)
     weight = new DataType[n];
 
     CreatHuffman(HT, n); // 创建哈夫曼树
-    Encode(HT, HD, n);     // 进行编码
+    Encode(HT, HD, n);   // 进行编码
 
     test();
     while (choice)
@@ -225,7 +238,7 @@ int main(void)
         {
         case 1:
             PrintCode(HT, HD, n);
-            test01();
+            test();
             break;
         case 2:
             PrintCode(HT, HD, n);
@@ -234,7 +247,7 @@ int main(void)
             break;
         case 3:
             Print(HT, n); // 输出哈夫曼树
-            test01();
+            test();
         case 0:
             cout << "退出成功" << endl;
             break;
