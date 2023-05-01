@@ -1,41 +1,40 @@
-/*	��ʮһ��ʵ�鱨��
-	ʵ��Ŀ��
-		(1)���սṹ�����Ļ���ʹ�÷�����
-		(2)���սṹ����Ļ���ʹ�÷�����
-		(3)���սṹ�ļ�Ƕ��Ӧ�á�
-		(4)���սṹָ��ĸ���Լ��ṹָ����Ϊ���������ı�̷�����
-
-	ʵ������
-		����ƽ���ɼ�������һ��ѧ���Ľṹ��¼��Ҫ�����ѧ�š������ͳɼ�����������n(n<10)��������n��ѧ���Ļ�����Ϣ��Ҫ����㲢������ǵ�ƽ���ɼ�(����2λС��)���Ա�д��Ӧ����
+/*	第十一次实验报告
+	实验目的
+		(1)掌握结构变量的基本使用方法。
+		(2)掌握结构数组的基本使用方法。
+		(3)掌握结构的简单嵌套应用。
+		(4)掌握结构指针的概念，以及结构指针作为函数参数的编程方法。
+	实验内容
+		计算平均成绩：建立一个学生的结构记录，要求包括学号、姓名和成绩。输入整数n(n<10)，再输入n个学生的基本信息，要求计算并输出他们的平均成绩(保留2位小数)。试编写相应程序。
 */
 
 #include <stdio.h>
 
 struct student
 {
-	int id;          // ѧ��
-	char name[64];   // ����
-	float score;     // �ɼ�
+	int id;          // 学号
+	char name[64];   // 姓名
+	float score;     // 成绩
 };
 
 int main()
 {
-	// ����һ���ṹ���������洢ѧ������Ϣ
+	// 定义一个结构体数组来存储学生的信息
 	struct student students[10];
 
-	// ����ѧ���ĸ���
+	// 读入学生的个数
 	int n;
-	printf("������ѧ���ĸ�����");
+	printf("请输入学生的个数：");
 	scanf("%d", &n);
 
-	// ѭ������ÿ��ѧ������Ϣ
+	// 循环读入每个学生的信息
 	for (int i = 0; i < n; i++)
 	{
-		printf("������� %d ��ѧ����ѧ�š������ͳɼ���", i + 1);
+		printf("请输入第 %d 个学生的学号、姓名和成绩：", i + 1);
 		scanf("%d %s %f", &students[i].id, students[i].name, &students[i].score);
 	}
 
-	// ��������ѧ����ƽ���ɼ�
+	// 计算所有学生的平均成绩
 	float total = 0;
 	for (int i = 0; i < n; i++)
 	{
@@ -43,8 +42,8 @@ int main()
 	}
 	float average = total / n;
 
-	// ���ƽ���ɼ�
-	printf("����ѧ����ƽ���ɼ��ǣ�%.2f\n", average);
+	// 输出平均成绩
+	printf("所有学生的平均成绩是：%.2f\n", average);
 
 	return 0;
 }
