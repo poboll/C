@@ -17,8 +17,7 @@ struct student
 	float score;     // 成绩
 };
 
-int main()
-{
+int main() {
 	// 定义一个结构体数组来存储学生的信息
 	struct student students[10];
 
