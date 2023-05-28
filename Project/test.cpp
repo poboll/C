@@ -1,13 +1,15 @@
 #include<stdio.h>
-void hh(int n);
+
+void hh(int *n);
+
 int main() {
-    int n;
-    n = 1;
-    void hh(int n);
+    int n = 1;
+    hh(&n);
     printf("%d", n);
     return 0;
 }
-void hh(int n){
-    n = 10;
-    printf("%d", n);
+
+void hh(int *n){
+    *n = 10;
+    printf("%d", *n);
 }
