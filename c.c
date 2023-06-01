@@ -240,3 +240,12 @@ int game(int* guess, int guessSize, int* answer, int answerSize) {
     }
     return ans;
 }
+
+int minCount(int* coins, intcoinsSize) {
+    int i;
+    int ans = 0;
+    for(i = 0; i < coinsSize; ++i) {
+        ans += (coins[i]+1)/2;  // ()
+    }
+    return ans;
+}
