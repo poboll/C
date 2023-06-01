@@ -35,6 +35,9 @@ int main()
     search();
     findMin();
     climbStairs();
+    countKDifference();
+    game();
+
 }
 
 int add1(int a, int b) {
@@ -220,3 +223,20 @@ int climbStairs(int n) {
     return f[n];                    // (4)
 }
 
+int countKDifference(int* nums, int numsSize, int k) {
+    int i, j, ans = 0;
+    for(int j = i + 1; j < numsSize; ++j){
+        if( abs(nums[i] - nums[j]) == k)
+            ++ans;
+    }
+    return ans;
+}
+
+int game(int* guess, int guessSize, int* answer, int answerSize) {
+    int i;
+    int ans = 0;
+    for(i = 0; i < 3; ++i) {
+        ans +=(guess[i] == answer[i]) ? 1 : 0;  // (1)
+    }
+    return ans;
+}
