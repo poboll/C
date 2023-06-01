@@ -24,12 +24,44 @@ int main()
 
 
 
-    int a[8] = {9,8,7,6,5};
+    int a[7] = {9,8,7,6,5};
+    int b = a[0];   // 5
+    int c = a[6];   // 4
+    int d = a[7];   // error
 
-    int b[7] = {5,2,0,1,3,1,4};
-
+    int nums[10];
+    int fff[7] = {5,2,0,1,3,1,4};
+    add(a[]);
+    search();
+    findMin();
+    climbStairs();
 }
 
+int add1(int a, int b) {
+    return a + b;
+}
+
+int add3(int nums[10]) {
+    int i;
+    int s = 0;
+    for(i = 0; i < nums; ++i) {
+        s += nums[i];
+    }
+    return s;
+}
+
+int add4(int nums[10], int numsSize) {
+    int i;
+    int s = 0;
+    for(i = 0; i < numsSize; ++i) {
+        s += nums[i];
+    }
+    return s;
+}
+
+int add(int *nums, int numsSize) {
+    // ...
+}
 返回类型 函数名 (参数列表)
 {
     函数体
@@ -159,4 +191,32 @@ int isPerfectSquare(int x){
     return false;           // (5)
 }
 
+int search(int* nums, int numsSize, int target) {   // (1)
+    int i;
+    for(i = 0; i < numsSize; ++i) {                 // (2)
+        if(nums[i] == target) {
+            return i;                               // (3)
+        }
+    }
+    return -1;                                       // (4)
+}
+
+int findMin(int* nums, int numsSize) {
+    int i, min = 100000;
+    for(i = 0; i < numsSize; ++i) {
+        if(nums[i] < min) {
+            min = nums[i];
+        }
+    }
+    return min;
+}
+
+int f[1000];                        // (1)
+int climbStairs(int n) {
+    f[0] = f[1] = 1;                // (2)
+    for(int i = 2; i <= n; ++i) {
+        f[i] = f[i-1] + f[i-2];     // (3)
+    }
+    return f[n];                    // (4)
+}
 
