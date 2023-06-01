@@ -259,4 +259,4 @@ int minCount(int* coins, int coinsSize) {
     }
     return ans;
 }
-int
+int 1
