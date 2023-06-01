@@ -14,7 +14,7 @@ int main()
     isPowerOfThree()
     isPowerOfTwo();
     isPowerOfFour()
-    kthFactor(
+    kthFactor(0;
             isPerfectSquare(
     int i, sum = 0;             // (2)
     for(i = 1; i <= n;) {       // (3)
@@ -126,9 +126,9 @@ bool isPowerOfFour(int n) {
 
 int kthFactor(int n, int k){
     int i;
-    int sum = 0;                // (1)
+    int cnt = 0;                // (1)
     for(i = 1; i <= n; ++i) {   // (2)
-        if(n % i -- 0) {        // (3)
+        if(n % i == 0) {        // (3)
             ++cnt;
             if(cnt == k) {
                 return i;       // (4)
@@ -138,7 +138,7 @@ int kthFactor(int n, int k){
     return -1;                  // (5)
 }
 
-int isPerfectSquare(int X){
+int isPerfectSquare(int x){
     int i;
     long long p;
     for(i = 1;; ++i) {      // (1)
@@ -152,3 +152,5 @@ int isPerfectSquare(int X){
     }
     return false;           // (5)
 }
+
+
