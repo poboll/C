@@ -47,6 +47,7 @@ int main()
     game();
     minCount();
     containsDuplicate();
+    maximumGap();
 
 }
 bool containsDuplicate(int* nums, int numsSize);
