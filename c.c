@@ -49,7 +49,7 @@ int main()
     containsDuplicate();
 
 }
-
+bool containsDuplicate(int* nums, int numsSize);
 
 int cmp2(const void *p1, const void *p2) { // (1)
     int v1 = *(int *)p1;                  // (2)
@@ -94,11 +94,11 @@ int majorityElement(int* nums, int numsSize) {
     return nums[numsSize/2];                                            //(1)
 }
 
-int cmp(const void *a, const void *b) {
+int cmp6(const void *a, const void *b) {
     return (*(int *)a) - (*(int *)b);
 }
 
-bool containsDuplicate(int* nums, int numsSize) {
+bool containsDuplicate(int *nums, int numsSize) {
     int i;
     qsort(nums,numsSize,sizeof(int),cmp);
     for(i = 1; i < numsSize; ++i) {
@@ -107,6 +107,21 @@ bool containsDuplicate(int* nums, int numsSize) {
         }
     }
     return false;
+}
+
+int cmp(const void *a, const void *b) {
+    return *(int *)a - *(int *)b;
+}
+
+int maximumGap(int* nums, int numsSize) {
+    int i, max = 0;
+    qsort(nums, numsSize, sizeof(int),cmp);
+    for(i = 1; i < numsSize; ++i) {
+        if(nums[i] - nums[i-1] > max) {     // (1)
+            max = nums[i] - nums[i-1];
+        }
+    }
+    return max;
 }
 
 int add1(int a, int b) {
@@ -233,6 +248,8 @@ bool isPowerOfFour(int n) {
     }
     return false;
 }
+
+
 
 int kthFactor(int n, int k){
     int i;
