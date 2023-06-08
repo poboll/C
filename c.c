@@ -48,9 +48,11 @@ int main()
     minCount();
     containsDuplicate();
     maximumGap();
+    sortArrayByParity();
 
 }
 bool containsDuplicate(int* nums, int numsSize);
+int* sortArrayByParity(int* nums, int numsSize, int* returnSize);
 
 int cmp2(const void *p1, const void *p2) { // (1)
     int v1 = *(int *)p1;                  // (2)
@@ -129,15 +131,30 @@ int Qua(int x) {
     return x & 1;
 }
 
-int cmp(const void *a, const void *b) {
+int cmp8(const void *a, const void *b) {
     return Qua(*(int *)a) - Qua(*(int *)b);
 }
 
 int* sortArrayByParity(int* nums, int numsSize, int* returnSize) {
     int i;
-    int *ret = (int *)malloc(sizeof(int) * numsSize);
-    for(int)
+    int *ret = (int *)malloc(sizeof(int) * numsSize);           // (1)
+    for(i = 0; i < numsSize; ++i) {
+        ret[i] = nums[i];                                            // (2)
+    }
+    qsort(ret, numsSize, sizeof(int), cmp);  // (3)
+    *returnSize = numsSize;                                          // (4)
+    return ret;
 }
+
+int cmp(const void *a, const void *b) {
+    return *(int *)a - *(int *)b;
+}
+
+int min(int a, int b) {
+    return a < b ? a : b;
+}
+
+int findMinDifference(char)
 
 int add1(int a, int b) {
     return a + b;
