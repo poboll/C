@@ -23,8 +23,15 @@ int main()
     }
 
 
+    int (*cmp)(const void *, const void *);
 
-    int a[7] = {9,8,7,6,5};
+    int a[5] = {4,5,3,2,1};
+
+    {1, 2, 3, 4, 5};
+
+    __attribute__((unused)) int compar(const void *p1, const void *p2);
+
+    qsort(a, 5, sizeof(int), cmp);
     int b = a[0];   // 5
     int c = a[6];   // 4
     int d = a[7];   // error
