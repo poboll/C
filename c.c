@@ -23,7 +23,7 @@ int main()
     }
 
 
-    int (*cmp)(const void *, const void *);
+    int (*cmp1)(const void *, const void *);
 
     int a[5] = {4,5,3,2,1};
 
@@ -31,6 +31,7 @@ int main()
 
     __attribute__((unused)) int compar(const void *p1, const void *p2);
 
+    cmp(1,2);
     qsort(a, 5, sizeof(int), cmp);
     int b = a[0];   // 5
     int c = a[6];   // 4
@@ -45,7 +46,67 @@ int main()
     countKDifference();
     game();
     minCount();
+    containsDuplicate();
 
+}
+
+
+int cmp2(const void *p1, const void *p2) { // (1)
+    int v1 = *(int *)p1;                  // (2)
+    int v2 = *(int *)p2;                  // (3)
+    if(v1 < v2) {                         // (4)
+        return -1;
+    }else if(v1 > v2) {
+        return 1;
+    }
+    return 0;
+}
+
+int cmp1(const void *p1, const void *p2) {
+    return (*(int *)p1) - (*(int *)p2);
+}
+
+int cmp3(const void *p1, const void *p2) {
+    return (*(int *)p2) - (*(int *)p1);
+}
+
+int Qua(int x) {
+    return x % 2;
+}
+int cmp4(const void *p1, const void *p2) {
+    return Qua(*(int *)p1) - Qua(*(int *)p2);
+}
+
+int cmp5(const void* a, const void* b) {
+    return *(int *)a - *(int *)b;                                 // (1)
+}
+int* sortArray(int* nums, int numsSize, int *returnSize) {
+    qsort(nums, numsSize,sizeof(int),cmp);// (2)
+    *returnSize = numsSize;                                       // (4)
+    return nums;                                                  // (4)
+}
+
+int cmp6(const void *a, const void *b) {
+    return (*(int *)a) - (*(int *)b);
+}
+int majorityElement(int* nums, int numsSize) {
+    qsort(nums, numsSize, sizeof(int), cmp);
+    return nums[numsSize/2];                                            //(1)
+}
+
+int cmp(const void *a, const void *b) {
+    return (*(int *)a) - (*(int *)b);
+}
+
+bool containsDuplicate(int* nums, int numsSize) {
+    int i;
+    qsort(nums,numsSize,sizeof(int),cmp);
+    for(i = 1; i < numsSize; ++i) {
+        if(nums[i] == nums[i-1]) {      // (1)
+            return true;
+        }
+    }
+    return false;
 }
 
 int add1(int a, int b) {
