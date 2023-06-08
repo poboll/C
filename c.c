@@ -133,7 +133,11 @@ int cmp(const void *a, const void *b) {
     return Qua(*(int *)a) - Qua(*(int *)b);
 }
 
-int* sortArrayByParity(int* nums)
+int* sortArrayByParity(int* nums, int numsSize, int* returnSize) {
+    int i;
+    int *ret = (int *)malloc(sizeof(int) * numsSize);
+    for(int)
+}
 
 int add1(int a, int b) {
     return a + b;
