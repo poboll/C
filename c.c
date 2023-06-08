@@ -110,7 +110,7 @@ bool containsDuplicate(int *nums, int numsSize) {
     return false;
 }
 
-int cmp(const void *a, const void *b) {
+int cmp7(const void *a, const void *b) {
     return *(int *)a - *(int *)b;
 }
 
@@ -124,6 +124,16 @@ int maximumGap(int* nums, int numsSize) {
     }
     return max;
 }
+
+int Qua(int x) {
+    return x & 1;
+}
+
+int cmp(const void *a, const void *b) {
+    return Qua(*(int *)a) - Qua(*(int *)b);
+}
+
+int* sortArrayByParity(int* nums)
 
 int add1(int a, int b) {
     return a + b;
