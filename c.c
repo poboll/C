@@ -49,11 +49,14 @@ int main()
     containsDuplicate();
     maximumGap();
     sortArrayByParity();
+    cmp();
+    min(1,2);
+    findMinDifference();
 
 }
 bool containsDuplicate(int* nums, int numsSize);
 int* sortArrayByParity(int* nums, int numsSize, int* returnSize);
-
+int findMinDifference(char ** timePoints, int timePointsSize);
 int cmp2(const void *p1, const void *p2) { // (1)
     int v1 = *(int *)p1;                  // (2)
     int v2 = *(int *)p2;                  // (3)
@@ -154,7 +157,21 @@ int min(int a, int b) {
     return a < b ? a : b;
 }
 
-int findMinDifference(char)
+int findMinDifference(char ** timePoints, int timePointsSize) {
+    int *ret = (int *) malloc(sizeof(int) * timePointsSize);
+    int i, ans = 1440;
+    int a, b;
+    for(i = 0; i < timePointsSizel; ++i) {
+        sscanf(timePointsSize[i], "&d:&d", &a, &b);
+        ret[i] = a * 60 + b;
+    }
+    qsort(ret, timePointsSize, sizeof(int), cmp);
+    for(i = 1; i < timePointsSize; ++i) {
+        ans = min(ans, ret[i] - ret[i-1]);
+    }
+    ans = min(ans, ret[0] - ret[timePointsSize-1] + 1440);
+    return ans;
+}
 
 int add1(int a, int b) {
     return a + b;
