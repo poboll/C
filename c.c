@@ -161,15 +161,15 @@ int findMinDifference(char ** timePoints, int timePointsSize) {
     int *ret = (int *) malloc(sizeof(int) * timePointsSize);
     int i, ans = 1440;
     int a, b;
-    for(i = 0; i < timePointsSizel; ++i) {
-        sscanf(timePointsSize[i], "&d:&d", &a, &b);
-        ret[i] = a * 60 + b;
+    for(i = 0; i < timePointsSize; ++i) {
+        sscanf(timePointsSize[i], "&d:&d", &a, &b);                         // (1)
+        ret[i] = a * 60 + b;                                                // (2)
     }
-    qsort(ret, timePointsSize, sizeof(int), cmp);
+    qsort(ret, timePointsSize, sizeof(int), cmp);   // (3)
     for(i = 1; i < timePointsSize; ++i) {
-        ans = min(ans, ret[i] - ret[i-1]);
+        ans = min(ans, ret[i] - ret[i-1]);                           // (4)
     }
-    ans = min(ans, ret[0] - ret[timePointsSize-1] + 1440);
+    ans = min(ans, ret[0] - ret[timePointsSize-1] + 1440);           // (5)
     return ans;
 }
 
