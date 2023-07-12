@@ -368,6 +368,15 @@ int climbStairs(int n) {
     return f[n];                    // (4)
 }
 
+int t[40];
+int tribonacci(int n){
+    t[0] = 0, t[1] = 1, t[2] = 1;
+    for(int i = 3; i <= n; ++i) {
+        t[i] = t[i-3] + t[i-2] + t[i-1];
+    }
+    return t[n];
+}
+
 int countKDifference(int* nums, int numsSize, int k) {
     int i, j, ans = 0;
     for(int j = i + 1; j < numsSize; ++j){
