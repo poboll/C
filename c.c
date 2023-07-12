@@ -339,6 +339,16 @@ int search(int* nums, int numsSize, int target) {   // (1)
     return -1;                                       // (4)
 }
 
+bool search1(int* nums, int numsSize, int target) {
+    int i;
+    for(i = 0; i < numsSize; ++i) {
+        if(nums[i] == target) {
+            return true;
+        }
+    }
+    return false;
+}
+
 int findMin(int* nums, int numsSize) {
     int i, min = 100000;
     for(i = 0; i < numsSize; ++i) {
