@@ -410,7 +410,7 @@ int minCount(int* coins, int coinsSize) {
     int i;
     int ans = 0;
     for(i = 0; i < coinsSize; ++i) {
-        ans += (coins[i]+1)/2;  // (1)
+        ans += (coins[i]+1)/2;  // (1)//利用C语言中的除法运算，考虑到为1的时候1/2==0 ,所以将每个数+1
     }
     return ans;
 }
