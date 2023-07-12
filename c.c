@@ -377,11 +377,13 @@ int tribonacci(int n){
     return t[n];
 }
 
-int countKDifference(int* nums, int numsSize, int k) {
+int countKDifference(int* nums, int numsSize, int k){
     int i, j, ans = 0;
-    for(int j = i + 1; j < numsSize; ++j){
-        if( abs(nums[i] - nums[j]) == k)
-            ++ans;
+    for(int i = 0; i < numsSize; ++i){
+        for(int j = i + 1; j < numsSize; ++j){
+            if( abs(nums[i] - nums[j]) == k)
+                ++ans;
+        }
     }
     return ans;
 }
