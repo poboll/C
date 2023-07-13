@@ -433,3 +433,5 @@ int peakIndexInMountainArray1(int* arr, int arrSize) {
     }
     return ans;
 }
+
+1
