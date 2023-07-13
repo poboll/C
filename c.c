@@ -445,7 +445,6 @@ int peakIndexInMountainArray1(int* arr, int arrSize) {
 //int a;
 //int *p = &a;
 //a == *p;
-boolean n;
 int *p = (int *)malloc(sizeof(int) * n );
 
 int *getList(int *nums, int numsSize, int *returnSize) {
@@ -497,16 +496,50 @@ int *getList(int *nums, int numsSize, int *returnSize) {
 //    return ret;
 //}
 
+/**
+* Note: The returned array must be malloced, assume caller calls free().
+*/
 int *buildArray(int *nums, int numsSize, int *returnSize) {
-   // int i;
-    int *ret = (int *)malloc(sizeof(int) * numsSize ); // (1)
+    int i;
+    int *ret = (int *)malloc(sizeof(int) * numsSize );
     for(i = 0; i < numsSize; ++i) {
-        ret[i+numsSize] = ret[i] = nums[i];                // (2)
+        ret[i] = nums[ nums[i] ];                // (1)
     }
-    *returnSize = 2 * numsSize;                            // (3)
+    *returnSize = numsSize;
     return ret;
 }
 
+///**
+//* Note: The returned array must be malloced, assume caller calls free().
+//*/
+//int *runningSum(int *nums, int numsSize, int *returnSize) {
+//    int i;
+//    int *ret = (int *)malloc(sizeof(int) * numsSize );
+//    for(i = 0; i < numsSize; ++i) {     // (1)
+//        ret[i] = nums[i];
+//        if(i) {
+//            ret[i] += ret[i-1];
+//        }
+//    }
+//    *returnSize = numsSize;
+//    return ret;
+//}
+
+char * reverseLeftWords(char* s, int k) {
+    int i;
+    int n = strlen(s);
+    char *ret = (char *)malloc( (n + 1) * sizeof(char) );   // (1)
+    for(i = 0; i < n; ++i) {
+        ret[i] = s[(i + k) % n];                                 // (2)
+    }
+    ret[n] = '\0';                                               // (3)
+    return ret;
+}
+
+char * defangIPaddr
+
 func(1,2,3)
 shuffle(1,2,3)
-getConcatenation
+runningSum(1,2,3)
+reverseLeftWords(1,2)
+buildArray(1,2,3)
