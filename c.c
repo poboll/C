@@ -525,21 +525,47 @@ int *buildArray(int *nums, int numsSize, int *returnSize) {
 //    return ret;
 //}
 
-char * reverseLeftWords(char* s, int k) {
+//char * reverseLeftWords(char* s, int k) {
+//    int i;
+//    int n = strlen(s);
+//    char *ret = (char *)malloc( (n + 1) * sizeof(char) );   // (1)
+//    for(i = 0; i < n; ++i) {
+//        ret[i] = s[(i + k) % n];                                 // (2)
+//    }
+//    ret[n] = '\0';                                               // (3)
+//    return ret;
+//}
+
+char * defangIPaddr(char * address) {
+    char * ret = (char *)malloc(1000 * sizeof(char));   // (1)
+    int returnSize = 0;
     int i;
-    int n = strlen(s);
-    char *ret = (char *)malloc( (n + 1) * sizeof(char) );   // (1)
-    for(i = 0; i < n; ++i) {
-        ret[i] = s[(i + k) % n];                                 // (2)
+    for(i = 0; address[i]; ++i) {                            // (2)
+        if(address[i]  == '.') {
+            ret[ returnSize++ ] = '[';
+            ret[ returnSize++ ] = '.';
+            ret[ returnSize++ ] = ']';
+        }else {
+            ret[ returnSize ++ ] = address[i];
+        }
     }
-    ret[n] = '\0';                                               // (3)
+    ret[ returnSize ] = '\0';                             // (3)
     return ret;
 }
 
-char * defangIPaddr
-
-func(1,2,3)
-shuffle(1,2,3)
-runningSum(1,2,3)
-reverseLeftWords(1,2)
-buildArray(1,2,3)
+char* replaceSpace(char* s) {
+    char *ret = malloc( sizeof(char) * 30001 ); // (1)
+    int i, retSize = 0;
+    for(i = 0; s[i]; ++i) {
+        if(s[i] == ' ') {
+            ret[retSize++] = '%%';
+            ret[retSize++] = '2';
+            ret[retSize++] = '0';
+        }else {
+            ret[retSize++] = s[i];
+        }
+    }
+    ret[retSize] = '\0';
+    return ret;
+}
+replaceSpace(1)
