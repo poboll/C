@@ -446,11 +446,43 @@ int peakIndexInMountainArray1(int* arr, int arrSize) {
 //int *p = &a;
 //a == *p;
 boolean n;
-
 int *p = (int *)malloc(sizeof(int) * n );
 
 int *getList(int *nums, int numsSize, int *returnSize) {
     // ...
 }
 
-getList(1,2,3,)
+
+//int a[7] = {5,2,0,1,3,1,4};
+//int rSize;
+//int *ret =  getList(a,7,&rSize);
+//int xxx;
+///**
+//* Note: The returned array must be malloced, assume caller calls free().    // (1)
+//*/
+//int *func(int *nums, int numsSize, int *returnSize) {                       // (2)
+//    int *ret = (int *)malloc( sizeof(int)* xxx );                      // (3)
+//    // TODO                                                                 // (4)
+//    *returnSize = xxx;                                                      // (5)
+//    return ret;                                                             // (6)
+//}
+
+/**
+* Note: The returned array must be malloced, assume caller calls free().    // (1)
+*/
+int *shuffle(int *nums, int numsSize, int *returnSize) {                     // (2)
+    int i;
+    int *ret = (int *)malloc(sizeof(int)* numsSize );                  // (3)
+    for(i = 0, i < numsSize; ++i) {
+        if(i & 1) {
+            ret[i] = nums[n + i/2];
+        }else {
+            ret[i] = nums[(i+1)/2];
+        }
+    }
+    *returnSize = numsSize;                                                 // (5)
+    return ret;                                                             // (6)
+}
+
+func(1,2,3)
+shuffle(1,2,3)
