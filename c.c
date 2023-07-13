@@ -467,22 +467,35 @@ int *getList(int *nums, int numsSize, int *returnSize) {
 //    return ret;                                                             // (6)
 //}
 
-/**
-* Note: The returned array must be malloced, assume caller calls free().    // (1)
-*/
-int *shuffle(int *nums, int numsSize, int *returnSize) {                     // (2)
-    int i;
-    int *ret = (int *)malloc(sizeof(int)* numsSize );                  // (3)
-    for(i = 0, i < numsSize; ++i) {
-        if(i & 1) {
-            ret[i] = nums[n + i/2];
-        }else {
-            ret[i] = nums[(i+1)/2];
-        }
-    }
-    *returnSize = numsSize;                                                 // (5)
-    return ret;                                                             // (6)
-}
+///**
+//* Note: The returned array must be malloced, assume caller calls free().    // (1)
+//*/
+//int *shuffle(int *nums, int numsSize, int *returnSize) {                     // (2)
+//    int i;
+//    int *ret = (int *)malloc(sizeof(int)* numsSize );                  // (3)
+//    for(i = 0, i < numsSize; ++i) {
+//        if(i & 1) {
+//            ret[i] = nums[n + i/2];
+//        }else {
+//            ret[i] = nums[(i+1)/2];
+//        }
+//    }
+//    *returnSize = numsSize;                                                 // (5)
+//    return ret;                                                             // (6)
+//}
 
+/**
+* Note: The returned array must be malloced, assume caller calls free().
+*/
+int *getConcatenation(int *nums, int numsSize, int *returnSize) {
+    int i;
+    int *ret = (int *)malloc(2*numsSize*sizeof(int)); // (1)
+    for(i = 0, i < numsSize; ++i) {
+        ret[i+numsSize] = ret[i] = nums[i];                // (2)
+    }
+    *returnSize = 2 * numsSize;                            // (3)
+    return ret;
+}
 func(1,2,3)
 shuffle(1,2,3)
+getConcatenation
