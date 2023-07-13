@@ -3,7 +3,6 @@
 #include<stdlib.h>
 #include <stdbool.h>
 
-
 int main()
 {
     printf("吴粤大麻瓜\n");
@@ -434,4 +433,24 @@ int peakIndexInMountainArray1(int* arr, int arrSize) {
     return ans;
 }
 
-1
+//char x = 'o';
+//char *p = (x)的地址;
+
+//char x = 'o';
+//char *p = &x;
+
+//int a[] = {5,2,0,1,3,1,4};
+//int *p = a;
+
+//int a;
+//int *p = &a;
+//a == *p;
+boolean n;
+
+int *p = (int *)malloc(sizeof(int) * n );
+
+int *getList(int *nums, int numsSize, int *returnSize) {
+    // ...
+}
+
+getList(1,2,3,)
