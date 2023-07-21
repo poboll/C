@@ -466,35 +466,35 @@ int *getList(int *nums, int numsSize, int *returnSize) {
 //    return ret;                                                             // (6)
 //}
 
-///**
-//* Note: The returned array must be malloced, assume caller calls free().    // (1)
-//*/
-//int *shuffle(int *nums, int numsSize, int *returnSize) {                     // (2)
-//    int i;
-//    int *ret = (int *)malloc(sizeof(int)* numsSize );                  // (3)
-//    for(i = 0; i < numsSize; ++i) {
-//        if(i & 1) {
-//            ret[i] = nums[n + i/2];
-//        }else {
-//            ret[i] = nums[(i+1)/2];
-//        }
-//    }
-//    *returnSize = numsSize;                                                 // (5)
-//    return ret;                                                             // (6)
-//}
+/**
+* Note: The returned array must be malloced, assume caller calls free().    // (1)
+*/
+int *shuffle(int *nums, int numsSize, int *returnSize) {                     // (2)
+    int i;
+    int *ret = (int *)malloc(sizeof(int)* numsSize );                  // (3)
+    for(i = 0; i < numsSize; ++i) {
+        if(i & 1) {
+            ret[i] = nums[n + i/2];
+        }else {
+            ret[i] = nums[(i+1)/2];
+        }
+    }
+    *returnSize = numsSize;                                                 // (5)
+    return ret;                                                             // (6)
+}
 
-///**
-//* Note: The returned array must be malloced, assume caller calls free().
-//*/
-//int *getConcatenation(int *nums, int numsSize, int *returnSize) {
-//    int i;
-//    int *ret = (int *)malloc(2*numsSize*sizeof(int)); // (1)
-//    for(i = 0; i < numsSize; ++i) {
-//        ret[i+numsSize] = ret[i] = nums[i];                // (2)
-//    }
-//    *returnSize = 2 * numsSize;                            // (3)
-//    return ret;
-//}
+/**
+* Note: The returned array must be malloced, assume caller calls free().
+*/
+int *getConcatenation(int *nums, int numsSize, int *returnSize) {
+    int i;
+    int *ret = (int *)malloc(2*numsSize*sizeof(int)); // (1)
+    for(i = 0; i < numsSize; ++i) {
+        ret[i+numsSize] = ret[i] = nums[i];                // (2)
+    }
+    *returnSize = 2 * numsSize;                            // (3)
+    return ret;
+}
 
 /**
 * Note: The returned array must be malloced, assume caller calls free().
@@ -509,32 +509,32 @@ int *buildArray(int *nums, int numsSize, int *returnSize) {
     return ret;
 }
 
-///**
-//* Note: The returned array must be malloced, assume caller calls free().
-//*/
-//int *runningSum(int *nums, int numsSize, int *returnSize) {
-//    int i;
-//    int *ret = (int *)malloc(sizeof(int) * numsSize );
-//    for(i = 0; i < numsSize; ++i) {     // (1)
-//        ret[i] = nums[i];
-//        if(i) {
-//            ret[i] += ret[i-1];
-//        }
-//    }
-//    *returnSize = numsSize;
-//    return ret;
-//}
+/**
+* Note: The returned array must be malloced, assume caller calls free().
+*/
+int *runningSum(int *nums, int numsSize, int *returnSize) {
+    int i;
+    int *ret = (int *)malloc(sizeof(int) * numsSize );
+    for(i = 0; i < numsSize; ++i) {     // (1)
+        ret[i] = nums[i];
+        if(i) {
+            ret[i] += ret[i-1];
+        }
+    }
+    *returnSize = numsSize;
+    return ret;
+}
 
-//char * reverseLeftWords(char* s, int k) {
-//    int i;
-//    int n = strlen(s);
-//    char *ret = (char *)malloc( (n + 1) * sizeof(char) );   // (1)
-//    for(i = 0; i < n; ++i) {
-//        ret[i] = s[(i + k) % n];                                 // (2)
-//    }
-//    ret[n] = '\0';                                               // (3)
-//    return ret;
-//}
+char * reverseLeftWords(char* s, int k) {
+    int i;
+    int n = strlen(s);
+    char *ret = (char *)malloc( (n + 1) * sizeof(char) );   // (1)
+    for(i = 0; i < n; ++i) {
+        ret[i] = s[(i + k) % n];                                 // (2)
+    }
+    ret[n] = '\0';                                               // (3)
+    return ret;
+}
 
 char * defangIPaddr(char * address) {
     char * ret = (char *)malloc(1000 * sizeof(char));   // (1)
@@ -569,3 +569,4 @@ char* replaceSpace(char* s) {
     return ret;
 }
 replaceSpace(1)
+
