@@ -158,7 +158,7 @@ int findMinDifference(char ** timePoints, int timePointsSize) {
     int i, ans = 1440;
     int a, b;
     for(i = 0; i < timePointsSize; ++i) {
-        sscanf(timePointsSize[i], "&d:&d", &a, &b);                         // (1)
+        sscanf(timePoints[i], "%d:%d", &a, &b);                             // (1)
         ret[i] = a * 60 + b;                                                // (2)
     }
     qsort(ret, timePointsSize, sizeof(int), cmp);   // (3)
