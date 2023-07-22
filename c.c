@@ -75,9 +75,6 @@ int cmp3(const void *p1, const void *p2) {
     return (*(int *)p2) - (*(int *)p1);
 }
 
-int Qua(int x) {
-    return x % 2;
-}
 int cmp4(const void *p1, const void *p2) {
     return Qua(*(int *)p1) - Qua(*(int *)p2);
 }
