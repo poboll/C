@@ -567,9 +567,26 @@ char* replaceSpace(char* s) {
     return ret;
 }
 
-int cmp(const void* a, const void* b) {
+int cmp10(const void* a, const void* b) {
     return *(int *)a - *(int *)b;
 }
 int maxProductDifference(int* nums, int numsSize) {
-    qsort(nums, numsSize, sizeof(int), cmp);
+    qsort(nums, numsSize, sizeof(int), cmp);    // (1)
+    return nums[numsSize-1] * nums[numsSize-2] - nums[0] * nums[1];     // (2)
 }
+
+int cmp(const void *a, const void *b) {
+    return *(int *)a - *(int *)b;
+}
+int largestPerimeter(int *nums, int numsSize) {
+    int i;
+    qsort(nums, numsSize, sizeof(int), cmp);
+    for(i = numsSize-1; i >= 2; --i) {
+        if(nums[i-2] + nums[i-1] > nums[i]) {       // (1)
+            return nums[i-2] + nums[i-1] + nums[i];
+        }
+    }
+    return 0;
+}
+
+largestPerimeter(1,2)
