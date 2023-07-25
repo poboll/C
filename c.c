@@ -601,7 +601,7 @@ int arrayPairSum(int* nums, int numsSize) {
     return ans;
 }
 
-int cmp(const void *a, const int *b) {
+int cmp13(const void *a, const void *b) {
     return *(int *)a - *(int *)b;
 }
 
@@ -618,7 +618,31 @@ int numRescueBoats(int* people, int peopleSize, int limit) {
         } else                                                          // (4)
             ++ans, ++l, --r;
     }
+    return ans;
 }
+
+int cmp14(const void *a, const void *b) {
+    return *(int *)a - *(int *)b;
+}
+
+void wiggleSort(int* nums, int numsSize) {
+    int i;
+    int l, r;
+    int *ret = (int *)malloc(sizeof(int) * numsSize);
+    for(i = 0; i < numsSize; ++i) {
+        ret[i] = nums[i];                                           // (1)
+    }
+    qsort(ret,numsSize,sizeof(int),cmp);    // (2)
+    r = numsSize-1;
+    for(i = 1; i < numsSize; i += 2) {
+        nums[i] = ret[r--];                                         // (3)
+    }
+    for(i = 0; i < numsSize; i += 2) {
+        nums[i] = ret[r--];                                         // (4)
+    }
+}
+
+wiggleSort(1,2)
 arrayPairSum(1,2)
 largestPerimeter(1,2)
 numRescueBoats((1,2)
