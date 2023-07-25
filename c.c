@@ -575,7 +575,7 @@ int maxProductDifference(int* nums, int numsSize) {
     return nums[numsSize-1] * nums[numsSize-2] - nums[0] * nums[1];     // (2)
 }
 
-int cmp(const void *a, const void *b) {
+int cmp11(const void *a, const void *b) {
     return *(int *)a - *(int *)b;
 }
 int largestPerimeter(int *nums, int numsSize) {
@@ -589,4 +589,24 @@ int largestPerimeter(int *nums, int numsSize) {
     return 0;
 }
 
+int cmp12(const void* a, const void *b) {
+    return *(int *)a - *(int *)b;
+}
+int arrayPairSum(int* nums, int numsSize) {
+    int i, ans = 0;
+    qsort(nums, numsSize, sizeof(int), cmp);    // (1)
+    for(i = 0; i < numsSize; i += 2) {
+        ans += nums[i];                                                 // (2)
+    }
+    return ans;
+}
+
+int cmp(const void *a, const int *b) {
+    return *(int *)a - *(int *)b;
+}
+
+int numRescueBoats(int* people, int peopleSize, int limit) {
+
+}
+arrayPairSum(1,2)
 largestPerimeter(1,2)
