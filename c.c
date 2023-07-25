@@ -145,7 +145,7 @@ int* sortArrayByParity(int* nums, int numsSize, int* returnSize) {
     return ret;
 }
 
-int cmp(const void *a, const void *b) {
+int cmp9(const void *a, const void *b) {
     return *(int *)a - *(int *)b;
 }
 
@@ -194,6 +194,7 @@ int add4(int nums[10], int numsSize) {
 int add(int *nums, int numsSize) {
     // ...
 }
+
 返回类型 函数名 (参数列表)
 {
     函数体
@@ -565,5 +566,10 @@ char* replaceSpace(char* s) {
     ret[retSize] = '\0';
     return ret;
 }
-replaceSpace(1)
 
+int cmp(const void* a, const void* b) {
+    return *(int *)a - *(int *)b;
+}
+int maxProductDifference(int* nums, int numsSize) {
+    qsort(nums, numsSize, sizeof(int), cmp);
+}
