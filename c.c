@@ -606,7 +606,19 @@ int cmp(const void *a, const int *b) {
 }
 
 int numRescueBoats(int* people, int peopleSize, int limit) {
-
+    int i;
+    int l = 0, r = peopleSize - 1;
+    int ans = 0;
+    qsort(people,peopleSize,sizeof(int),cmp);   // (1)
+    while(l <= r) {
+        if(l == r) {
+            ++ans; break;                                               // (2)
+        } else if(people[l] + people[r] > limit) {                      // (3)
+            ++ans, r--;
+        } else                                                          // (4)
+            ++ans, ++l, --r;
+    }
 }
 arrayPairSum(1,2)
 largestPerimeter(1,2)
+numRescueBoats((1,2)
