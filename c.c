@@ -642,7 +642,7 @@ void wiggleSort(int* nums, int numsSize) {
     }
 }
 
-int cmp(const void *a, const void *b) {
+int cmp15(const void *a, const void *b) {
     return *(int *)a - *(int *)b;
 }
 
@@ -662,6 +662,49 @@ int findContentChildren(int* g, int gSize, int* s, int sSize) {
     return ans;
 }
 
+int minOperations(int* nums, int numsSize) {
+    int i;
+    int ans = 0, pre = nums[0] + 1;
+    for(i = 1; i < numsSize; ++i) {
+        if(pre < nums[i]) {
+            pre = nums[i] + 1;      // (1)
+        }else {
+            ans += pre - nums[i];   // (2)
+            ++pre;
+        }
+    }
+    return ans;
+}
+
+int cmp(const void *a, const void *b) {
+    return *(int *)a - *(int *)b;
+}
+
+int triangleNumber(int* nums, int numsSize) {
+    int i, j, k;
+    int ans = 0;
+    qsort(nums,numsSize,sizeof(int),cmp);   // (1)
+    for(i = 0; i < numsSize; ++i) {
+        j = i + 1;
+        k = j + 1;                                                  // (2)
+        while(j < numsSize) {
+            while(k < numsSize) {
+                if(nums[i] + nums[j] <= nums[k]) {
+                    break;                                          // (3)
+                }
+                ++k;
+            }
+            ans += k-j-1;                                           // (4)
+            ++j;                                                    // (5)
+            if(k == j) k++;
+        }
+
+    }
+    return ans;
+}
+
+triangleNumber(1,2)
+minOperations(1,2)
 findContentChildren(1,2)
 wiggleSort(1,2)
 arrayPairSum(1,2)
