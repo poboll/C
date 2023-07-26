@@ -642,6 +642,27 @@ void wiggleSort(int* nums, int numsSize) {
     }
 }
 
+int cmp(const void *a, const void *b) {
+    return *(int *)a - *(int *)b;
+}
+
+int findContentChildren(int* g, int gSize, int* s, int sSize) {
+    int i, j , ans;
+    qsort(g,gSize,sizeof(int),cmp);      // (1)
+    qsort(s,sSize,sizeof(int),cmp);
+    i = gSize - 1, j = sSize - 1;                                // (2)
+    ans = 0;
+    while(i >= 0 && j >= 0) {
+        if(s[j] >= g[i]) {                                       // (3)
+            --i, --j;
+            ++ans;
+        } else
+            --i;                                                 // (4)
+    }
+    return ans;
+}
+
+findContentChildren(1,2)
 wiggleSort(1,2)
 arrayPairSum(1,2)
 largestPerimeter(1,2)
