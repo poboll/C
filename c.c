@@ -676,30 +676,48 @@ int minOperations(int* nums, int numsSize) {
     return ans;
 }
 
-int minIncrementForUnique(int* nums, int numsSize){
-    if(numsSize == 0 || numsSize == 1) return 0;
-    int isExisted[100005] = {0};
-    int doubled[100005] = {0};
+int minIncrementForUnique1(int* A, int ASize){
+    if (ASize == 0 || ASize == 1)  return 0;
+    int isExisted[101000] = {0};
+    int doubled[101000] = {0};
     int cnt = 0;
-    isExisted[nums[0]] = 1;
-    for(int i = 1; i < numsSize; ++i) {
-        if(isExisted[nums[i]]) {            // 如果已存在，把数字放进已重复数组
-            doubled[cnt++] = nums[i];
+    isExisted[A[0]] = 1;
+    for (int i = 1; i < ASize; i++) {
+        if (isExisted[A[i]]) { //如果已存在，把该数字放进已重复数组里
+            doubled[cnt++] = A[i];
         } else {
-            isExisted[nums[i]] = 1;         // 记录每一个存在的数
+            isExisted[A[i]] = 1; //记录每一个存在的数
         }
     }
     int ans = 0;
-    for(int i = 0 ;i < cnt; ++i) {
-        for(int j = (doubled[i] + 1); ; ++j) {
-            if(!isExisted[j]) {             // 从每个数加1开始，找到第一个未存在过的大于它的数
-                isExisted[j] = 1;           // 使该数“已存在”
-                ans += (j - doubled[i]);    // 其差值为最小加一次数
+    for (int i = 0; i < cnt; i++) {
+        for (int j = (doubled[i] + 1); ;j++) {
+            if (!isExisted[j]) { //从每个数加1开始，找到第一个未存在过的大于它的数
+                isExisted[j] = 1; //使该数“已存在”
+                ans += (j - doubled[i]); //其差值即为最小加一次数
                 break;
             }
         }
     }
     return ans;
+}
+
+int minIncrementForUnique2(int* nums, int numsSize){
+    if(numsSize == 0) return 0;
+    int* num = (int*)calloc(101000, sizeof(int)); //储存nums中的每个数
+    int j, sum = 0;
+    for(int i = 0; i < numsSize; ++i){
+        if(num[nums[i]] == 0){ //当前数未出现过，标记数组
+            num[nums[i]]++;
+        }else{ //如果当前数已经出现过
+            j = nums[i]+1;
+            while(num[j] != 0) j++; //当前数往后寻找到未出现过的数
+            num[j] = 1; //修改该数出现一次
+            sum += j - nums[i]; //记录从nums[i]一直加到该数的和
+        }
+    }
+    free(num);
+    return sum;
 }
 
 int cmp16(const void *a, const void *b) {
