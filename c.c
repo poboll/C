@@ -676,7 +676,33 @@ int minOperations(int* nums, int numsSize) {
     return ans;
 }
 
-int cmp(const void *a, const void *b) {
+int minIncrementForUnique(int* nums, int numsSize){
+    if(numsSize == 0 || numsSize == 1) return 0;
+    int isExisted[100005] = {0};
+    int doubled[100005] = {0};
+    int cnt = 0;
+    isExisted[nums[0]] = 1;
+    for(int i = 1; i < numsSize; ++i) {
+        if(isExisted[nums[i]]) {            // 如果已存在，把数字放进已重复数组
+            doubled[cnt++] = nums[i];
+        } else {
+            isExisted[nums[i]] = 1;         // 记录每一个存在的数
+        }
+    }
+    int ans = 0;
+    for(int i = 0 ;i < cnt; ++i) {
+        for(int j = (doubled[i] + 1); ; ++j) {
+            if(!isExisted[j]) {             // 从每个数加1开始，找到第一个未存在过的大于它的数
+                isExisted[j] = 1;           // 使该数“已存在”
+                ans += (j - doubled[i]);    // 其差值为最小加一次数
+                break;
+            }
+        }
+    }
+    return ans;
+}
+
+int cmp16(const void *a, const void *b) {
     return *(int *)a - *(int *)b;
 }
 
