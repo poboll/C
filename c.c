@@ -899,6 +899,7 @@ int numSpecial(int** mat, int matsize, int* matColsize) {
             return sum;
 
 check(1,2)
+numSpecial(12,2)
 min (1,2)
 isToeplitzMatrix(1,2)
 checkSame(1,2)
