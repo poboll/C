@@ -719,7 +719,7 @@ int minIncrementForUnique2(int* nums, int numsSize){
     free(num);
     return sum;
 }
-
+/*按照题解的方法，先设一个数组记录每个数出现的次数，再遍历这个数组，遇到出现次数大于1的就记录个数和它先扣掉的数。遇到出现次数为0的就补上相加的数。 比如 [3,2,1,2,1,7] ，重复了一个1一个2，可以补到空缺的4和5上，需要的步数是（4+5-1-2），我们可以让move先-1-2，遇到空的再+4+5。 执行用时48ms超越81.91%。消耗内存12.8MB，超越6.45%。*/
 int cmp16(const void *a, const void *b) {
     return *(int *)a - *(int *)b;
 }
@@ -747,6 +747,10 @@ int triangleNumber(int* nums, int numsSize) {
     return ans;
 }
 
+int diagonalSum(int** mat, int matSize, int* matColSize) {
+}
+
+diagonalSum(1,2)
 triangleNumber(1,2)
 minOperations(1,2)
 findContentChildren(1,2)
