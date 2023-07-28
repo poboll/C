@@ -808,7 +808,7 @@ int checkSame(int** matrix, int sr, int sc, int maxr, int maxc) {   // (1)
 
 bool isToeplitzMatrix(int** matrix, int matrixsize, int* matrixcolsize) {
     int r = matrixsize;
-    int c = matrixcolize[0];
+    int c = matrixcolsize[0];
     int i;
     for(i = 0; i < c; ++i) {
         if (!checkSame(matrix,0,i,r,c) ) {      // (7)
@@ -816,7 +816,7 @@ bool isToeplitzMatrix(int** matrix, int matrixsize, int* matrixcolsize) {
         }
     }
     for(i = 0; i < r; ++i) {
-        if (!checkSame(matrix, i, 0, r, c)) {      // (8)
+        if (!checkSame(matrix,i,0,r,c)) {       // (8)
             return false;
         }
     }
@@ -837,7 +837,7 @@ int* luckyNumbers(int** matrix, int matrixsize, int* matrixcolSize, int* returnS
     int c = matrixcolSize[0];
     int rmin[100];
     int cmax[100];
-    int *ret = (int *)malloc( sizeof(int) * r * с );
+    int *ret = (int *)malloc(sizeof(int) * r * c );
     for(i = 0; i < r; ++i) {
         rmin[i] = 1000000;
         for(j = 0; j < c; ++j) {
@@ -866,14 +866,14 @@ int check(int** mat, int matize, int matColSize, int r, int c) {
     if(mat[r][c] != 1) {
         return 0;
     }
-    for(i = 0; i < matsize; ++i) {
+    for(i = 0; i < matize; ++i) {
         if(i != r && mat[i][c]) {
             return 0;
         }
     }
 
-    for(i = 0; i < matcolize; ++i) {
-        if(i != с && mat[r][i]){
+    for(i = 0; i < matColSize; ++i) {
+        if(i != c && mat[r][i]){
             return 0;
         }
     }
@@ -882,21 +882,14 @@ int check(int** mat, int matize, int matColSize, int r, int c) {
 
 int numSpecial(int** mat, int matsize, int* matColsize) {
     int i, j;
-}
-
     int sum = 0;
-
-    for(i = 0; i< matsize; ++i) {
-
-        for(j = 0; j< matcolsize[i]; ++j) {
-
-            sum += check(mat, matsize, matColsize[i], i, j); II (6)
-
-            4
-
-            4
-
-            return sum;
+    for(i = 0; i < matsize; ++i) {
+        for (j = 0; j < matColsize[i]; ++j) {
+            sum += check(mat, matsize, matColsize[i], i, j);
+        }
+    }
+    return sum;
+}
 
 check(1,2)
 numSpecial(12,2)
