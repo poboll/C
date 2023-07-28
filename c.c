@@ -831,7 +831,7 @@ int max(int a, int b) {
     return a > b ? a : b;
 }
 
-int* luckyNumbers(int** matrix, int matrixsize, int* matrixcolSize, int* returnSize){
+int* luckyNumbers(int** matrix, int matrixsize, int* matrixcolSize, int* returnSize) {
     int i, j;
     int r = matrixsize;
     int c = matrixcolSize[0];
@@ -853,15 +853,52 @@ int* luckyNumbers(int** matrix, int matrixsize, int* matrixcolSize, int* returnS
     *returnSize = 0;
     for(i = 0; i < r; ++i) {
         for(j = 0; j < c; ++j) {
-            if(matrix[i][j] == rmin[i] && matrix[i][j] == cmax[j]) {
-                ret[ (*returnSize)++ ] = matrix[i][j];
+            if (matrix[i][j] == rmin[i] && matrix[i][j] == cmax[j]) {
+                ret[(*returnSize)++] = matrix[i][j];
             }
-
-                return ret;
+        }
+    }
+    return ret;
 }
 
+int check(int** mat, int matize, int matColSize, int r, int c) {
+    int i;
+    if(mat[r][c] != 1) {
+        return 0;
+    }
+    for(i = 0; i < matsize; ++i) {
+        if(i != r && mat[i][c]) {
+            return 0;
+        }
+    }
 
-        luckyNumbers(1,2)
+    for(i = 0; i < matcolize; ++i) {
+        if(i != с && mat[r][i]){
+            return 0;
+        }
+    }
+    return 1;
+}
+
+int numSpecial(int** mat, int matsize, int* matColsize) {
+    int i, j;
+}
+
+    int sum = 0;
+
+    for(i = 0; i< matsize; ++i) {
+
+        for(j = 0; j< matcolsize[i]; ++j) {
+
+            sum += check(mat, matsize, matColsize[i], i, j); II (6)
+
+            4
+
+            4
+
+            return sum;
+
+check(1,2)
 min (1,2)
 isToeplitzMatrix(1,2)
 checkSame(1,2)
