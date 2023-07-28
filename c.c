@@ -815,18 +815,24 @@ bool isToeplitzMatrix(int** matrix, int matrixsize, int* matrixcolsize) {
     int c = matrixcolize[0];
     int i;
     for(i = 0; i < c; ++i) {
-        if (!checkSame(matrix, o, i, r, c)) {
+        if (!checkSame(matrix,0,i,r,c) ) {      // (7)
             return false;
         }
     }
     for(i = 0; i < r; ++i) {
-        if( !checkSame(matrix,i,0,r,c) ) {
+        if (!checkSame(matrix, i, 0, r, c)) {      // (8)
             return false;
         }
-        return true;
+    }
+    return true;
 }
 
-    isToeplitzMatrix(1,2)
+int min(int a, int b) {
+    return a < b ? a : b;
+}
+
+min (1,2)
+isToeplitzMatrix(1,2)
 checkSame(1,2)
 maximumWealth(1,2)
 countNegatives(1,2)
