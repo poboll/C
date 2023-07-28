@@ -149,10 +149,6 @@ int cmp9(const void *a, const void *b) {
     return *(int *)a - *(int *)b;
 }
 
-int min(int a, int b) {
-    return a < b ? a : b;
-}
-
 int findMinDifference(char ** timePoints, int timePointsSize) {
     int *ret = (int *) malloc(sizeof(int) * timePointsSize);
     int i, ans = 1440;
@@ -831,6 +827,41 @@ int min(int a, int b) {
     return a < b ? a : b;
 }
 
+int max(int a, int b) {
+    return a > b ? a : b;
+}
+
+int* luckyNumbers(int** matrix, int matrixsize, int* matrixcolSize, int* returnSize){
+    int i, j;
+    int r = matrixsize;
+    int c = matrixcolSize[0];
+    int rmin[100];
+    int cmax[100];
+    int *ret = (int *)malloc( sizeof(int) * r * с );
+    for(i = 0; i < r; ++i) {
+        rmin[i] = 1000000;
+        for(j = 0; j < c; ++j) {
+            rmin[i] = min(rmin[i],matrix[i][j]);               // (1)
+        }
+    }
+    for (j = 0; j < c; ++j) {
+        cmax[j] = 0;
+        for(i = 0; i < r; ++i) {
+            cmax[j] = max(cmax[j], matrix[i][j]);               // (2)
+        }
+    }
+    *returnSize = 0;
+    for(i = 0; i < r; ++i) {
+        for(j = 0; j < c; ++j) {
+            if(matrix[i][j] == rmin[i] && matrix[i][j] == cmax[j]) {
+                ret[ (*returnSize)++ ] = matrix[i][j];
+            }
+
+                return ret;
+}
+
+
+        luckyNumbers(1,2)
 min (1,2)
 isToeplitzMatrix(1,2)
 checkSame(1,2)
