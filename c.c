@@ -748,8 +748,88 @@ int triangleNumber(int* nums, int numsSize) {
 }
 
 int diagonalSum(int** mat, int matSize, int* matColSize) {
+    int r = matSize;                    // (1)
+    int c = matColSize[0];
+    int i;
+    int ans = 0;
+    for(i = 0; i < r; ++i) {
+        ans += mat[i][i];               // (2)
+    }
+    for(i = 0; i < r; ++i) {
+        if(r-i-1 != i) {
+            ans += mat[i][r-i-1];       // (3)
+        }
+    }
+    return ans;
 }
 
+int countNegatives(int** grid, int gridSize, int* gridColSize) {
+    int i, j, ans = 0;
+    int r = gridSize;               // (1)
+    int c = gridColSize[0];
+    for(i = 0; i < r; ++i) {
+        for(j = 0; j < c; ++j) {
+            if(grid[i][j] < 0) {
+                ++ans;              // (2)
+            }
+        }
+    }
+    return ans;
+}
+
+int maximumWealth(int** accounts, int accountsSize, int* accountsColSize) {
+    int i, j;
+    int maxv = -1, maxIdx, sumv;
+    for(i = 0; i < accountsSize; ++i) {
+        sumv = 0;
+        for(j = 0; j < *accountsColSize; ++j) {
+            sumv += accounts[i][j];             // (1)
+        }
+        if(sumv > maxv) {
+            maxv = sumv;                        // (2)
+            maxIdx = i;
+        }
+    }
+    return maxv;
+}
+
+int checkSame(int** matrix, int sr, int sc, int maxr, int maxc) {   // (1)
+    int step = 0;
+    while(1) {
+        if(sr + step >= maxr) {
+            break;                                                  // (2)
+        }
+        if(sc + step >= maxc) {
+            break;                                                  // (3)
+        }
+        if(matrix[sr+step][sc+step] != matrix[sr][sc]) {            // (4)
+            return false;
+        }
+        ++step;                                                     // (5)
+    }
+    return true;                                                    // (6)
+}
+
+bool isToeplitzMatrix(int** matrix, int matrixsize, int* matrixcolsize) {
+    int r = matrixsize;
+    int c = matrixcolize[0];
+    int i;
+    for(i = 0; i < c; ++i) {
+        if (!checkSame(matrix, o, i, r, c)) {
+            return false;
+        }
+    }
+    for(i = 0; i < r; ++i) {
+        if( !checkSame(matrix,i,0,r,c) ) {
+            return false;
+        }
+        return true;
+}
+
+    isToeplitzMatrix(1,2)
+checkSame(1,2)
+maximumWealth(1,2)
+countNegatives(1,2)
 diagonalSum(1,2)
 triangleNumber(1,2)
 minOperations(1,2)
