@@ -912,9 +912,22 @@ int** flipAndInvertImage(int** image, int imageSize, int* imageColSize, int* ret
             ret[i][j] = 1 - image[i][ c-1-j ];                  // (4)
         }
     }
-    return ret;
+    return ret;                                                 // (5)
 }
 
+int** transpose(int** matrix, int matrixSize, int* matrixColSize, int* returnSize, int** returnColumnSize) {
+    int i, j;                                                                   // (1)
+    int r = matrixColSize[0], c = matrixSize;                                   // (2)
+    int **ret = myMalloc(r, c ,returnSize, returnColumnSize);   // (3)
+    for(i = 0; i < r; ++i) {
+        for(j = 0; j < c; ++j) {
+            ret[i][j] = matrix[j][i];                                           // (4)
+        }
+    }
+    return ret;                                                                 // (5)
+}
+
+transpose(1,2,3,4)
 flipAndInvertImage(1,2,3,4)
 myMalloc(1,2)
 check(1,2)
