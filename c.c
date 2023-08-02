@@ -949,9 +949,27 @@ int** matrixReshape(int** mat, int matSize, int* matColSize, int r, int c, int* 
             ret[i][j] = mat[id / m][id % m];                // (4)
         }
     }
+
+    return ret;
 }
 
-atrixReshape(1,2,3,4)
+int** construct2DArray(int* original, int originalSize, int m, int n, int* returnSize, int** returnColumnSizes) {
+    int **ret, i, j;
+    if(originalSize != n*m) {
+        *returnSize = 0;                                          // (1)
+        return ret;
+    }
+    ret = myMalloc(m, n, returnSize, returnColumnSizes);    // (2)
+    for(i = 0; i < m; ++i) {
+        for(j = 0; j < n; ++j) {
+            ret[i][j] = original[ i * n + j ];                    // (3)
+        }
+    }
+    return ret;                                                   // (4)
+}
+
+construct2DArray(1,2,3,4,5,6,7)
+matrixReshape(1,2,3,4,5,6)
 transpose(1,2,3,4)
 flipAndInvertImage(1,2,3,4)
 myMalloc(1,2)
