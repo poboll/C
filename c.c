@@ -891,6 +891,19 @@ int numSpecial(int** mat, int matsize, int* matColsize) {
     return sum;
 }
 
+int **myMalloc(int r, int c, int* returnSize, int** returnColumSizes) {
+    int i;
+    int **ret = (int **)malloc( sizeof(int *) * r );        // (1)
+    *returnColumSizes = (int *)malloc( sizeof(int) * r );   // (2)
+    *returnSize = r;                                             // (3)
+    for(i = 0; i < r; ++i) {
+        ret[i] = (int *)malloc( sizeof(int) * c );          // (4)
+        (*returnColumSizes)[i] = c;                              // (5)
+    }
+    return ret;
+}
+
+myMalloc(1,2)
 check(1,2)
 numSpecial(12,2)
 min (1,2)
