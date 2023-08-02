@@ -915,10 +915,10 @@ int** flipAndInvertImage(int** image, int imageSize, int* imageColSize, int* ret
     return ret;                                                 // (5)
 }
 
-int** transpose(int** matrix, int matrixSize, int* matrixColSize, int* returnSize, int** returnColumnSize) {
+int** transpose(int** matrix, int matrixSize, int* matrixColSize, int* returnSize, int** returnColumnSizes) {
     int i, j;                                                                   // (1)
     int r = matrixColSize[0], c = matrixSize;                                   // (2)
-    int **ret = myMalloc(r, c ,returnSize, returnColumnSize);   // (3)
+    int **ret = myMalloc(r, c ,returnSize, returnColumnSizes);   // (3)
     for(i = 0; i < r; ++i) {
         for(j = 0; j < c; ++j) {
             ret[i][j] = matrix[j][i];                                           // (4)
@@ -927,6 +927,31 @@ int** transpose(int** matrix, int matrixSize, int* matrixColSize, int* returnSiz
     return ret;                                                                 // (5)
 }
 
+int** matrixReshape(int** mat, int matSize, int* matColSize, int r, int c, int* returnSize, int** returnColumnSizes) {
+    int n = matSize;
+    int m = matColSize[0];
+    int **ret, id;
+    int i, j;
+
+    ret = myMalloc(r, c, returnSize, returnColumnSizes);    // (1)
+
+    if(n* m != r*c) {
+        *returnSize = n;
+        for(i = 0; i < n; ++i) {
+            (*returnColumnSizes)[i] = m;
+        }
+        return mat;                                         // (2)
+    }
+
+    for(i = 0; i < r; ++i) {
+        for(j = 0; j < c; ++j) {
+            id = i * c + j;                                 // (3)
+            ret[i][j] = mat[id / m][id % m];                // (4)
+        }
+    }
+}
+
+atrixReshape(1,2,3,4)
 transpose(1,2,3,4)
 flipAndInvertImage(1,2,3,4)
 myMalloc(1,2)
