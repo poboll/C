@@ -881,7 +881,7 @@ int check(int** mat, int matize, int matColSize, int r, int c) {
 }
 
 int numSpecial(int** mat, int matsize, int* matColsize) {
-    int i, j;
+    int i, j;å
     int sum = 0;
     for(i = 0; i < matsize; ++i) {
         for (j = 0; j < matColsize[i]; ++j) {
@@ -891,18 +891,31 @@ int numSpecial(int** mat, int matsize, int* matColsize) {
     return sum;
 }
 
-int **myMalloc(int r, int c, int* returnSize, int** returnColumSizes) {
+int **myMalloc(int r, int c, int* returnSize, int** returnColumnSizes) {
     int i;
     int **ret = (int **)malloc( sizeof(int *) * r );        // (1)
-    *returnColumSizes = (int *)malloc( sizeof(int) * r );   // (2)
+    *returnColumnSizes = (int *)malloc( sizeof(int) * r );  // (2)
     *returnSize = r;                                             // (3)
     for(i = 0; i < r; ++i) {
         ret[i] = (int *)malloc( sizeof(int) * c );          // (4)
-        (*returnColumSizes)[i] = c;                              // (5)
+        (*returnColumnSizes)[i] = c;                             // (5)
     }
     return ret;
 }
 
+int** flipAndInvertImage(int** image, int imageSize, int* imageColSize, int* returnSize, int ** returnColumnSizes) {
+    int i, j;                                                   // (1)
+    int r = imageSize, c = imageColSize[0];                     // (2)
+    int **ret = myMalloc(r, c, returnSize, returnColumnSizes);  // (3)
+    for(i = 0; i < r; ++i) {
+        for(j = 0; j < c; ++j) {
+            ret[i][j] = 1 - image[i][ c-1-j ];                  // (4)
+        }
+    }
+    return ret;
+}
+
+flipAndInvertImage(1,2,3,4)
 myMalloc(1,2)
 check(1,2)
 numSpecial(12,2)
