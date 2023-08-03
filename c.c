@@ -972,7 +972,14 @@ int trailingZeroes(int n) {
     if(n < 5) {
         return 0;                       // (1)
     }
-    return n / 5 + reallingZeroes(n/5);
+    return n / 5 + reallingZeroes(n/5); // (2)
+}
+
+int countNodes(struct TreeNode* root) {
+    if(root == NULL) {
+        return 0;               // (1)
+    }                           // (2)
+    return countNodes(root->left) + countNodes(root->right) + 1;
 }
 
 trailingZeroes(1,2)
