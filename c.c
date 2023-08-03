@@ -975,13 +975,34 @@ int trailingZeroes(int n) {
     return n / 5 + reallingZeroes(n/5); // (2)
 }
 
-int countNodes(struct TreeNode* root) {
-    if(root == NULL) {
-        return 0;               // (1)
-    }                           // (2)
-    return countNodes(root->left) + countNodes(root->right) + 1;
+//int countNodes(struct TreeNode* root) {
+//    if(root == NULL) {
+//        return 0;               // (1)
+//    }                           // (2)
+//    return countNodes(root->left) + countNodes(root->right) + 1;
+//}
+
+int Hash[1024];
+
+void transfer(struct TreeNode* root) {
+    if(root) {
+        Hash[root->val] = 1;         // (1)
+        transfer(root->left);   // (2)
+        transfer(root->right);  // (3)
+    }
+}
+int numColor(struct TreeNode* root) {
+    int i, sum = 0;
+    memset(Hash, 0, sizeof(Hash));
+    transfer(root);
+    for(i = 1; i <= 1000; ++i) {
+        if(Hash[i]) ++sum;
+    }
+    return sum;
 }
 
+Hash[1] = 1;
+numColor(1,2)
 trailingZeroes(1,2)
 construct2DArray(1,2,3,4,5,6,7)
 matrixReshape(1,2,3,4,5,6)
