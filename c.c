@@ -968,6 +968,14 @@ int** construct2DArray(int* original, int originalSize, int m, int n, int* retur
     return ret;                                                   // (4)
 }
 
+int trailingZeroes(int n) {
+    if(n < 5) {
+        return 0;                       // (1)
+    }
+    return n / 5 + reallingZeroes(n/5);
+}
+
+trailingZeroes(1,2)
 construct2DArray(1,2,3,4,5,6,7)
 matrixReshape(1,2,3,4,5,6)
 transpose(1,2,3,4)
