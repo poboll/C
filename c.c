@@ -972,15 +972,26 @@ int trailingZeroes(int n) {
     if(n < 5) {
         return 0;                       // (1)
     }
-    return n / 5 + reallingZeroes(n/5); // (2)
+    return n / 5 + trailingZeroes(n/5); // (2)
 }
 
-//int countNodes(struct TreeNode* root) {
-//    if(root == NULL) {
-//        return 0;               // (1)
-//    }                           // (2)
-//    return countNodes(root->left) + countNodes(root->right) + 1;
-//}
+int numberOfSteps(int num) {
+    if(num == 0) {
+        return 0;                            // (1)
+    }
+    if(num % 2 == 1) {
+        return numberOfSteps(num-1)+1;  // (2)
+    } else {
+        return numberOfSteps(num/2) + 1;// (3)
+    }
+}
+
+int countNodes(struct TreeNode* root) {
+    if(root == NULL) {
+        return 0;               // (1)
+    }                           // (2)
+    return countNodes(root->left) + countNodes(root->right) + 1;
+}
 
 int Hash[1024];
 
@@ -1000,7 +1011,7 @@ int numColor(struct TreeNode* root) {
     }
     return sum;
 }
-
+countNodes(1,2,3)
 Hash[1] = 1;
 numColor(1,2)
 trailingZeroes(1,2)
