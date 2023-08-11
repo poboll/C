@@ -1012,7 +1012,7 @@ int numColor(struct TreeNode* root) {
     return sum;
 }
 
-countNodes(1,2,3)
+countNodes(1,2)
 Hash[1] = 1;
 numColor(1,2)
 trailingZeroes(1,2)
