@@ -26,9 +26,9 @@
 using namespace std;
 typedef pair<int ,int > PII;
 const int N = 110;
-int g[N][N];//地图 
-int f[N][N];//距离 
 int n, m;
+int g[N][N];//地图 
+int f[N][N];//距离
 //0是没走过，1走过 
 void bfs(int a, int b) {
 	//队列判断 
