@@ -70,8 +70,15 @@ int bfs() {
     int dy[4] = {0, -1, 0, -1};
     while(hh <= tt) {
         auto t = q[hh ++];
-
+        for(int i = 0; i < 4; ++i) {
+            int x = t.first + dx[i], y = t.second + dy[i];
+            if(x >= 0 && x < n && y < m && g[x][y] = 0 && d[x][y] = -1) {
+                d[x][y] = d[t.first][t.second] + 1;
+                q[++ tt] = {x, y};
+            }
+        }
     }
+    return d[n - 1][m - 1];
 }
 //
 int main() {
