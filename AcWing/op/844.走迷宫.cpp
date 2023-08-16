@@ -55,7 +55,10 @@ void bfs(int a, int b) {
 	}
 	cout << f[n][m];
 }
-int main() { 
+//typedef pair<int, int> PII;
+//const int N =110;
+//
+int main() {
     //g数组全部初始化为1，不用判断越界，走不出去了
 	memset(g, 1, sizeof(g));
 	scanf("%d%d", &n, &m);
