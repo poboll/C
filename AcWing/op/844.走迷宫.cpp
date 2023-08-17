@@ -61,25 +61,25 @@ void bfs(int a, int b) {
 //int g[N][N];//地图
 //int d[N][N];//路径
 //PII q[N * N],prev[N][N];
-int bfs() {
-    int hh = 0, tt = 0;
-    q[0] = {0, 0};
-    memset(d, -1, sizeof d);//初始化
-    d[0][0] = 0;
-    int dx[4] = {-1, 0, 1, 0};
-    int dy[4] = {0, -1, 0, -1};
-    while(hh <= tt) {
-        auto t = q[hh ++];
-        for(int i = 0; i < 4; ++i) {
-            int x = t.first + dx[i], y = t.second + dy[i];
-            if(x >= 0 && x < n && y < m && g[x][y] = 0 && d[x][y] = -1) {
-                d[x][y] = d[t.first][t.second] + 1;
-                q[++ tt] = {x, y};
-            }
-        }
-    }
-    return d[n - 1][m - 1];
-}
+//int bfs() {
+//    int hh = 0, tt = 0;
+//    q[0] = {0, 0};
+//    memset(d, -1, sizeof d);//初始化
+//    d[0][0] = 0;
+//    int dx[4] = {-1, 0, 1, 0};
+//    int dy[4] = {0, -1, 0, -1};
+//    while(hh <= tt) {
+//        auto t = q[hh ++];
+//        for(int i = 0; i < 4; ++i) {
+//            int x = t.first + dx[i], y = t.second + dy[i];
+//            if(x >= 0 && x < n && y < m && g[x][y] = 0 && d[x][y] = -1) {
+//                d[x][y] = d[t.first][t.second] + 1;
+//                q[++ tt] = {x, y};
+//            }
+//        }
+//    }
+//    return d[n - 1][m - 1];
+//}
 //
 int main() {
     //g数组全部初始化为1，不用判断越界，走不出去了
