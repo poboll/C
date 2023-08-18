@@ -79,6 +79,10 @@ void bfs(int a, int b) {
 //            }
 //        }
 //    }
+        while (x || y){
+            cout << ' ' << y;
+            x = t.first, y = t.second; // 沿着路径向前
+        }
 //    return d[n - 1][m - 1];
 //}
 //
