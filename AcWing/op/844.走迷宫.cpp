@@ -74,6 +74,7 @@ void bfs(int a, int b) {
 //            int x = t.first + dx[i], y = t.second + dy[i];
 //            if(x >= 0 && x < n && y < m && g[x][y] = 0 && d[x][y] = -1) {
 //                d[x][y] = d[t.first][t.second] + 1;
+//                prev[x][y] = t;
 //                q[++ tt] = {x, y};
 //            }
 //        }
