@@ -48,8 +48,8 @@ bool topsort() {
     return tt == n - 1; //当tt=n-1时，所有点都入队了表示没有环，返回true
 }
 int main() {
-    memset(h, -1, sizeof h);
     cin >> n >> m;
+    memset(h, -1, sizeof h);
     for(int i = 0; i < m; i ++) {
         int a, b;
         cin >> a >> b;
