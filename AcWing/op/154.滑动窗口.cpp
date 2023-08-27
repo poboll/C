@@ -64,7 +64,7 @@ int main() {
         if(hh <= tt && i - k + 1 > q[hh])  hh ++;
         while(hh <= tt && a[i] >= a[q[tt]])  tt --;
         q[ ++ tt] = i;
-        if(i >= k - 1)  printf("%d ", a[q[hh]]);
+        if(i >= k - 1)      printf("%d ", a[q[hh]]);
     }
     return 0;
 }
