@@ -6,8 +6,8 @@
 样例输出
 3.33
 */
-#include<cstdio>
-#include<iostream>
+#include <cstdio>
+#include <iostream>
 
 using namespace std;
 
