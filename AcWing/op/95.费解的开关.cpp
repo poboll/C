@@ -114,7 +114,7 @@ int main() {
                 }
             }
             // 如果灯全部打开
-            if(!dark)   res = min(res, step);
+            if(!dark)  res = min(res, step);
             memcpy(g, backup, sizeof g); // 将原始数组重新赋值回去，供第一行遍历
         }
         if(res > 6) res = -1;
