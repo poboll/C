@@ -117,7 +117,7 @@ int main() {
             if(!dark)  res = min(res, step);
             memcpy(g, backup, sizeof g); // 将原始数组重新赋值回去，供第一行遍历
         }
-        if(res > 6) res = -1;
+        if(res > 6)     res = -1;
         cout << res << endl;
     }
     return 0;
