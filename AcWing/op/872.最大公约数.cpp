@@ -3,7 +3,7 @@
 //
 #include <iostream>
 using namespace std;
-int gcd(int a,int b) {
+int gcd(int a, int b) {
     return b ? gcd(b, a % d) : a;//(a, 0)-->a。0可整除任何数
 }
 int main(){
