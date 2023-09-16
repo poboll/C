@@ -8,7 +8,7 @@ int gcd(int a, int b) {
 }
 int main(){
     int n;
-    while(n--) {
+    while(n --) {
         int a, b;
         scanf("%d%d", &a, &b);
         printf("%d\n", gcd(a, b));
