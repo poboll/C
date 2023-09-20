@@ -215,4 +215,4 @@ add_executable(C
         helloworld.cpp
         tempCodeRunnerFile.c
         整数四则运算.c
-        移动零.c AcWing/op/877.扩展欧几里得算法.cpp AcWing/op/878.线性同余方程.cpp AcWing/op/885.高斯消元解线性方程.cpp)
+        移动零.c AcWing/op/877.扩展欧几里得算法.cpp AcWing/op/878.线性同余方程.cpp AcWing/op/885.高斯消元解线性方程.cpp AcWing/op/887.求组合数3.cpp)
