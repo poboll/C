@@ -5,5 +5,7 @@
 using namespace std;
 
 int main() {
+    int ans, i, t;
+
     return 0;
 }
