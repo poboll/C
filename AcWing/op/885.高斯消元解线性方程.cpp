@@ -6,6 +6,7 @@ using namespace std;
 
 int mian () {
     int ans, i, t;
-    ans = i
+    ans = i;
+
     return 0;
 }
