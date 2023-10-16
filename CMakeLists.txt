@@ -153,7 +153,6 @@ add_executable(C
         Project/tetris/day1.cpp
         Project/tetris/teris.cpp
         Project/test.cpp
-        Project1/源.cpp
         新特性/C++11新特性学习/第01天/1-教学资料/课堂记录.cpp
         新特性/C++11新特性学习/第01天/4-源代码/01_auto的使用.cpp
         新特性/C++11新特性学习/第01天/4-源代码/02_auto易错点.cpp
@@ -215,4 +214,4 @@ add_executable(C
         helloworld.cpp
         tempCodeRunnerFile.c
         整数四则运算.c
-        移动零.c AcWing/op/877.扩展欧几里得算法.cpp AcWing/op/878.线性同余方程.cpp AcWing/op/885.高斯消元解线性方程.cpp AcWing/op/887.求组合数3.cpp)
+        移动零.c AcWing/op/877.扩展欧几里得算法.cpp AcWing/op/878.线性同余方程.cpp AcWing/op/885.高斯消元解线性方程.cpp AcWing/op/887.求组合数3.cpp luogu/P1428小鱼比可爱.cpp)
