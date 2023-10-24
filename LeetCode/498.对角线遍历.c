@@ -16,6 +16,7 @@ int* findDiagonalOrder(int** mat, int matSize, int* matColSize, int* returnSize)
             return ans;
         }
     }
+
     // i行j列，flag==0从上到下，等于1表示从下到上
     int i = 0, j = 0, k = 0, flag = 1;
 
