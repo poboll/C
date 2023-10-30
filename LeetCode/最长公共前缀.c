@@ -11,6 +11,8 @@
  * 输出：""
  * 解释：输入不存在公共前缀。
  */
+
 char * longestCommonPrefix(char ** strs, int strsSize){
+    int i = 0;
 
 }
