@@ -14,5 +14,5 @@
 
 char * longestCommonPrefix(char ** strs, int strsSize){
     int i = 0;
-
+    strs = ["dog","racecar","car"];
 }
