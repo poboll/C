@@ -14,12 +14,12 @@
  *
  * 示例 2：
  *
- * 输入：s = "  hello world  "
+ * 输入：s = "hello world"
  * 输出："world hello"
  * 解释：反转后的字符串中不能存在前导空格和尾随空格。
  *
  * 示例 3：
- * 输入：s = "a good   example"
+ * 输入：s = "a good example"
  * 输出："example good a"
  * 解释：如果两个单词间有多余的空格，反转后的字符串需要将单词间的空格减少到仅有一个。
  *
@@ -27,20 +27,22 @@
  * 1 <= s.length <= 104
  * s 包含英文大小写字母、数字和空格 ' '
  * s 中 至少存在一个 单词
- * 进阶：如果字符串在你使用的编程语言中是一种可变数据类型，请尝试使用 O(1) 额外空间复杂度的 原地 解法。
+ * 进阶：如果字符串在你使用的编程语言中是一种可变数据类型，请尝试使用O(1) 额外空间复杂度的 原地 解法。
 */
 char * reverseWords(char * s){
-    string s1="";
+    char s1[1000]="";
     int i = 0, j = 0, k = 0;
-    for(int i = s.size() - 1; i >= 0; i --){
+    int length = strlen(s);
+
+    for(int i = length - 1; i >= 0; i --){
         k = 0;
         if(i != 0){
             if(s[i - 1] == ' ' && s[i] !=  ' '){
                 j ++;
-                s1 += s.substr(i, j);
+                s1 += strncat(s1, &s[i], j);
                 while(k < i){
                     if(s[k] != ' '){
-                        s1 += ' ';
+                        strncat(s1, " ", 1);
                         break;
                     }
                     k ++;
@@ -54,10 +56,11 @@ char * reverseWords(char * s){
         else {
             if(s[i] != ' '){
                 j ++;
-                s1 += s.substr(i, j);
+                strncat(s1, &s[i], j);
                 j = 0;
             }
         }
     }
+
     return s1;
 }
