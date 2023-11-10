@@ -3,7 +3,7 @@
 //
 #include <iostream>
 using namespace std;
-int main () {
+int main (){
      int n = 3;
      while (n) {
          printf("%2d is true\n", n--);
