@@ -17,6 +17,21 @@
 //对于 100% 的数据，保证 $0 \leq a_i \leq 2^{31} - 1$，数字个数不超过 100。
 #include <stdio.h>
 int main() {
-    int n, s, i, j;
+    int numbers[1000];
+    int num, index;
 
+    while(1) {
+        scanf("%d", &num);
+        if(num == 0) {
+            break;
+        }
+        numbers[index] = num;
+        index ++;
+    }
+
+    for(int i = index - 1; i >= 0; i --) {
+        printf("%d ", numbers[i]);
+    }
+
+    return 0;
 }
