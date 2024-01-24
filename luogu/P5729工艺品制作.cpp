@@ -21,7 +21,38 @@
 // 提示
 // 数据保证，1≤w,x,h≤20，1≤q≤100。1≤x1≤x2≤w，1≤y1≤y2≤x，1≤z1≤z2≤h。
 #include <stdio.h>
-int main () {
-    int w, x, h;
+
+int main() {
+    // 定义
+    const int N = 32;
+    int A[N][N][N];
+    int w, x, h, q;
+    int x1, y1, z1, x2, y2, z2;
+    int sum = 0;
     scanf("%d %d %d", &w, &x, &h);
+    scanf("%d", &q);
+
+    for (int i = 1; i <= q; ++i) {
+        scanf("%d %d %d %d %d %d", &x1, &y1, &z1, &x2, &y2, &z2);
+        // 填充
+        for(int a = x1; a <= x2; ++a) {
+            for(int b = y1; b <= y2; ++b) {
+                for(int c = z1; c <= z2; ++c) {
+                    A[a][b][c] = 1;
+                }
+            }
+        }
+    }
+    // 计算
+    for(int a = 1; a <= w; ++a) {
+        for(int b = 1; b <= x; ++b) {
+            for(int c = 1; c <= h; ++c) {
+                if(A[a][b][c] == 0) {
+                    ++sum;
+                }
+            }
+        }
+    }
+    printf("%d\n", sum);
+    return 0;
 }
