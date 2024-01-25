@@ -214,4 +214,4 @@ add_executable(C
         helloworld.cpp
         tempCodeRunnerFile.c
         整数四则运算.c
-        移动零.c AcWing/op/877.扩展欧几里得算法.cpp AcWing/op/878.线性同余方程.cpp AcWing/op/885.高斯消元解线性方程.cpp AcWing/op/887.求组合数3.cpp luogu/P1428小鱼比可爱.cpp luogu/P1427小鱼的数字游戏.cpp "LeetCode/1991. 找到数组的中间位置.c" LeetCode/搜索插入位置.c LeetCode/56.合并区间.c LeetCode/48.旋转矩阵.c LeetCode/零矩阵.c LeetCode/498.对角线遍历.c LeetCode/最长公共前缀.c LeetCode/151.反转字符串中的单词.cpp AcWing/op/test.cpp "luogu/P2433 小学数学 N 合一.cpp" luogu/P5727冰雹猜想.cpp luogu/P1554梦中的统计.cpp luogu/P1161开灯.cpp luogu/P1047校门外的树.cpp luogu/P5729工艺品制作.cpp)
+        移动零.c AcWing/op/877.扩展欧几里得算法.cpp AcWing/op/878.线性同余方程.cpp AcWing/op/885.高斯消元解线性方程.cpp AcWing/op/887.求组合数3.cpp luogu/P1428小鱼比可爱.cpp luogu/P1427小鱼的数字游戏.cpp "LeetCode/1991. 找到数组的中间位置.c" LeetCode/搜索插入位置.c LeetCode/56.合并区间.c LeetCode/48.旋转矩阵.c LeetCode/零矩阵.c LeetCode/498.对角线遍历.c LeetCode/最长公共前缀.c LeetCode/151.反转字符串中的单词.cpp AcWing/op/test.cpp "luogu/P2433 小学数学 N 合一.cpp" luogu/P5727冰雹猜想.cpp luogu/P1554梦中的统计.cpp luogu/P1161开灯.cpp luogu/P1047校门外的树.cpp luogu/P5729工艺品制作.cpp luogu/P2550彩票摇奖.cpp)
