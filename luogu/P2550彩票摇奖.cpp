@@ -33,3 +33,60 @@
 // 提示
 // 数据规模与约定
 // 对于 100\% 的数据，保证 1 <= n < 1000。
+#include <stdio.h>
+
+int main() {
+    int n;
+    scanf("%d", &n);
+
+    int win[7];
+    for (int i = 0; i < 7; ++i) {
+        scanf("%d", &win[i]);
+    }
+
+    int prize[7] = {0};
+    for (int i = 0 ; i < n; ++i) {
+        int ticket[7];
+        for (int j = 0; j < 7; ++j) {
+            scanf("%d", &ticket[j]);
+        }
+
+        int sum = 0;
+        for (int j = 0; j < 7; ++j) {
+            for(int k = 0; k < 7; ++k) {
+                if(ticket[j] == win[k]){
+                    sum++;
+                    break;
+                }
+            }
+        }
+        switch (sum) {
+            case 7:
+                prize[0]++;
+                break;
+            case 6:
+                prize[1]++;
+                break;
+            case 5:
+                prize[2]++;
+                break;
+            case 4:
+                prize[3]++;
+                break;
+            case 3:
+                prize[4]++;
+                break;
+            case 2:
+                prize[5]++;
+                break;
+            case 1:
+                prize[6]++;
+                break;
+        }
+    }
+    for (int i = 0; i < 7; ++i) {
+        printf("%d ", prize[i]);
+    }
+
+    return 0;
+}
