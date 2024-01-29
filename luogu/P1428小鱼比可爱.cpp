@@ -19,11 +19,11 @@ int main() {
     int n, s, i ,j;
     scanf("%d", &n);
     int a[n];
-    for(i = 0; i < n; i ++) {
+    for(i = 0; i < n; ++i) {
         s = 0; //每条鱼看不到比自己好的，每次遍历重置
         scanf("%d", &a[i]);
-        for(j = i; j >= 0; j --) { // 自减向前看
-            if(a[i] > a[j]) s ++; // 颜值高
+        for(j = i; j >= 0; --j) { // 自减向前看
+            if(a[i] > a[j]) s++; // 颜值高
         }
         printf("%d ", s); // 比较则输出
     }

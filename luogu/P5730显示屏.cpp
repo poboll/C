@@ -44,8 +44,8 @@ int main() {
     scanf("%s", nums);
 
     // 输出每一行
-    for (int i = 0; i < 5; i++) {
-        for (int j = 0; j < n; j++) {
+    for (int i = 0; i < 5; ++i) {
+        for (int j = 0; j < n; ++j) {
             // 输出当前数字的第i行
             printf("%s", digits[nums[j] - '0'][i]);
 

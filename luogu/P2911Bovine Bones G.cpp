@@ -35,3 +35,50 @@
 // 3 1 3 -> 7
 // 3 2 3 -> 8
 // Both 5 and 6 appear most frequently (five times each), so 5 is the answer.
+// 三个循环遍历所有可能的骰子点数组合，计算每个组合的和，然后统计每个和出现的次数，找出出现次数最多的和中最小的那个。
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    int s1, s2, s3;
+    scanf("%d %d %d", &s1, &s2, &s3);
+
+    // 计算可能的最大和
+    int maxSum = s1 + s2 + s3;
+
+    // 记录每个和出现的次数
+    // 使用动态内存分配
+    int *freq = (int*)calloc(maxSum + 1, sizeof(int));
+//    int freq[maxSum + 1] = {0};
+//    int freq[maxSum + 1];
+//    for(int i = 0; i <= maxSum; ++i) {
+//        freq[i] = 0;
+//    }
+
+    // 遍历所有可能的组合
+    for(int i = 1; i <= s1; ++i) {
+        for(int j = 1; j <= s2; ++j) {
+            for(int k = 1; k <= s3; ++k) {
+                int sum = i + j + k;
+                freq[sum]++;
+            }
+        }
+    }
+
+    // 找出出现次数最多的和中最小的那个
+    int maxFreq = 0;
+    int result = 0;
+    for(int i = 1; i <= maxSum; ++i) {
+        if(freq[i] > maxFreq) {
+            maxFreq = freq[i];
+            result = i;
+        }
+    }
+
+    printf("%d\n", result);
+
+    // 释放动态分配的内存
+    free(freq);
+
+    return 0;
+}
