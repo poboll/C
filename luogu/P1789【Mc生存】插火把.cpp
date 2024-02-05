@@ -32,30 +32,50 @@
 // 提示
 // 数据保证，1 <= n <= 100，1 <=q m+k <=q 25，1 <=q m <=q 25，0 <=q k <=q 5。
 #include <stdio.h>
+
 int main() {
-    int a[105][105], n, m, k, x, y, sum;
+    int a[105][105], n, m, k, x, y, sum = 0;
     scanf("%d%d%d", &n, &m, &k);
-//    int a[n + 5][n + 5]; // bool会RE
-    for(int i = 1; i <= m; ++i) {
-        scanf("%d%d", &x, &y); // 读入坐标
-        for(int i = x - 1; i <= x + 1; ++i)
-            for(int j = y - 1; j <= y + 1; ++j)
-                a[i][j] = true; // 中间 3 * 3 的方格被照亮
-        a[x - 2][y] = true;
-        a[x + 2][y] = true;
-        a[x][y + 2] = true;
-        a[x][y - 2] = true; // 四个角
+
+    // 初始化数组，所有点都没有光
+    for(int i = 0; i <= n+3; ++i) {
+        for(int j = 0; j <= n + 3; ++j) {
+            a[i][j] = 0;
+        }
     }
-    for(int i = 1; i <= k; ++i) {
+
+    // 处理火把的位置
+    for(int i = 0; i < m; ++i) {
         scanf("%d%d", &x, &y);
-        for(int i = x - 2; i <= x + 2; ++i)
-            for(int j = y - 2; j <= y + 2; ++j)
-                a[i][j] = true; // 5 * 5 的方格被照亮
+        for(int i = x - 1; i <= x + 1; ++i) {
+            for(int j = y - 1; j <= y + 1; ++j) {
+                a[i][j] = 1; // 中间 3 * 3 的方格被照亮
+            }
+        }
+        a[x - 2][y] = 1;
+        a[x + 2][y] = 1;
+        a[x][y + 2] = 1;
+        a[x][y - 2] = 1; // 四个角
     }
-    for(int i = 1; i <= n; ++i)
-        for(int j = 1; j <= n; ++j)
-            if(a[i][j] == 0)
-                sum ++; // 统计没光的地方
+
+    // 处理萤石的位置
+    for(int i = 0; i < k; ++i) {
+        scanf("%d%d", &x, &y);
+        for(int i = x - 2; i <= x + 2; ++i) {
+            for(int j = y - 2; j <= y + 2; ++j) {
+                a[i][j] = 1; // 5 * 5 的方格被照亮
+            }
+        }
+    }
+
+    // 统计没有光的点
+    for(int i = 1; i <= n; ++i) {
+        for(int j = 1; j <= n; ++j) {
+            if(a[i][j] == 0) {
+                sum++; // 统计没光的地方
+            }
+        }
+    }
 
     printf("%d", sum);
     return 0;
