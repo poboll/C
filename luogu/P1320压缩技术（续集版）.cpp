@@ -31,6 +31,53 @@
 // 提示
 // 数据保证，3 <= N <= 200。
 #include <stdio.h>
-int main() {
 
+void compressMatrix(int matrix[200][200], int n) {
+    int compressedCode[400];  // 假设N最大为200，那么压缩码的长度最大为400
+    int codeIndex = 0;
+
+    compressedCode[codeIndex++] = n;  // 第一个数是 N
+
+    for (int i = 0; i < n; i++) {
+        int count = 0;
+        int currentDigit = matrix[i][0];
+
+        for (int j = 0; j < n; j++) {
+            if (matrix[i][j] == currentDigit) {
+                count++;
+            } else {
+                compressedCode[codeIndex++] = count;
+                count = 1;
+                currentDigit = matrix[i][j];
+            }
+        }
+
+        compressedCode[codeIndex++] = count;
+    }
+
+    // 输出结果
+    for (int i = 0; i < codeIndex; i++) {
+        printf("%d", compressedCode[i]);
+        if (i < codeIndex - 1) {
+            printf(" ");
+        }
+    }
+}
+
+int main() {
+    int matrix[200][200];
+    int n;
+
+    // 读取输入数据
+    scanf("%d", &n);
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            scanf("%1d", &matrix[i][j]);
+        }
+    }
+
+    // 获取压缩码
+    compressMatrix(matrix, n);
+
+    return 0;
 }
