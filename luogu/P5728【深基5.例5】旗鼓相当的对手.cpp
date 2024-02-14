@@ -18,3 +18,34 @@
 // 2
 // 提示
 // 数据保证，2 \le N\le 1000 且每科成绩为不超过 150 的自然数。
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+int main() {
+    int N;
+    scanf("%d", &N);
+
+    int scores[N][3];
+    for (int i = 0; i < N; i++) {
+        scanf("%d %d %d", &scores[i][0], &scores[i][1], &scores[i][2]);
+    }
+
+    int count = 0;
+    for (int i = 0; i < N; i++) {
+        for (int j = i + 1; j < N; j++) {
+            int diff1 = abs(scores[i][0] - scores[j][0]);
+            int diff2 = abs(scores[i][1] - scores[j][1]);
+            int diff3 = abs(scores[i][2] - scores[j][2]);
+            int totalDiff = diff1 + diff2 + diff3;
+
+            if (diff1 <= 5 && diff2 <= 5 && diff3 <= 5 && totalDiff <= 10) {
+                count++;
+            }
+        }
+    }
+
+    printf("%d\n", count);
+
+    return 0;
+}
