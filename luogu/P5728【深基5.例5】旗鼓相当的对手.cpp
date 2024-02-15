@@ -20,7 +20,6 @@
 // 数据保证，2 \le N\le 1000 且每科成绩为不超过 150 的自然数。
 #include <stdio.h>
 #include <stdlib.h>
-#include <math.h>
 
 int main() {
     int N;
