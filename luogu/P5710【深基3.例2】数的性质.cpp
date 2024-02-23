@@ -1,7 +1,7 @@
 //
 // Created by 大妖怪 on 2024/2/21.
 //
-//P5170【深基3.例2】数的性质
+// P5170【深基3.例2】数的性质
 // 题目描述
 // 一些整数可能拥有以下的性质：
 // - 性质 1：是偶数；
@@ -15,3 +15,19 @@
 // 12
 // 样例输出
 // 1 1 0 0
+#include <stdio.h>
+
+int main() {
+    // 读取输入整数
+    int x;
+    scanf("%d", &x);
+
+    // 判断四个性质
+    int property1 = (x % 2 == 0);      // 性质1：偶数
+    int property2 = (x > 4 && x <= 12); // 性质2：大于4且不大于12
+
+    // 输出结果
+    printf("%d %d %d %d\n", property1, property2, property1 && !property2, !property1 && !property2);
+
+    return 0;
+}
