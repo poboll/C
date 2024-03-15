@@ -3,11 +3,11 @@
 //
 // P4414[COCI2006-2007#2] ABC
 // 题目描述
-// 三个整数分别为 $A,B,C$。这三个数字不会按照这样的顺序给你，但它们始终满足条件：$A < B < C$。为了看起来更加简洁明了，我们希望你可以按照给定的顺序重新排列它们。
+// 三个整数分别为 A,B,C。这三个数字不会按照这样的顺序给你，但它们始终满足条件：A < B < C。为了看起来更加简洁明了，我们希望你可以按照给定的顺序重新排列它们。
 // 输入格式
-// 第一行包含三个正整数 $A,B,C$，不一定是按这个顺序。这三个数字都小于或等于 $100$。第二行包含三个大写字母 $A$、$B$ 和 $C$（它们之间**没有**空格）表示所需的顺序。
+// 第一行包含三个正整数 A,B,C，不一定是按这个顺序。这三个数字都小于或等于 100。第二行包含三个大写字母 A、B 和 C（它们之间没有空格）表示所需的顺序。
 // 输出格式
-// 在一行中输出 $A$，$B$ 和 $C$，用一个 ` `（空格）隔开。
+// 在一行中输出 A，B 和 C，用一个 ` `（空格）隔开。
 // 题目描述
 // You will be given three integers A, B and C. The numbers will not be given in that exact order, but we do know that A is less than B and B less than C.
 // In order to make for a more pleasant viewing, we want to rearrange them in the given order.
@@ -26,3 +26,36 @@
 // CAB
 // 样例输出2
 // 6 2 4
+#include <stdio.h>
+
+int main() {
+    int A, B, C;
+    char order[3];
+
+    // 读取输入
+    scanf("%d %d %d", &A, &B, &C);
+    scanf("%s", order);
+
+    // 根据顺序重新排列数字
+    if (order[0] == 'A') {
+        if (order[1] == 'B') {
+            printf("%d %d %d\n", A, B, C);
+        } else {
+            printf("%d %d %d\n", A, C, B);
+        }
+    } else if (order[0] == 'B') {
+        if (order[1] == 'A') {
+            printf("%d %d %d\n", B, A, C);
+        } else {
+            printf("%d %d %d\n", B, C, A);
+        }
+    } else {
+        if (order[1] == 'A') {
+            printf("%d %d %d\n", C, A, B);
+        } else {
+            printf("%d %d %d\n", C, B, A);
+        }
+    }
+
+    return 0;
+}
