@@ -9,7 +9,7 @@
 // 若该行为三个数据则第一个数据表示运算类型， a 表示加法运算， b 表示减法运算， c 表示乘法运算，接着的两个数据表示参加运算的运算数。
 // 若该行为两个数据，则表示本题的运算类型与上一题的运算类型相同，而这两个数据为运算数。
 // 输出格式
-// 输出 2\times i 行。对于每个输入的算式，输出完整的运算式及结果，第二行输出该运算式的总长度。
+// 输出 2 * i 行。对于每个输入的算式，输出完整的运算式及结果，第二行输出该运算式的总长度。
 // 样例输入1
 // 4
 // a 64 46
@@ -29,3 +29,36 @@
 // 【数据规模与约定】
 // 对于 50\% 的数据，输入的算式都有三个数据，第一个算式一定有三个数据。
 // 对于所有数据，0< i 50，运算数为非负整数且小于 10000。
+#include <stdio.h>
+
+int main() {
+    int i, a, b, len;
+    char op, last_op;
+
+    scanf("%d", &i);
+
+    for (int j = 0; j < i; j++) {
+        if (j == 0) {
+            scanf(" %c %d %d", &op, &a, &b);
+        } else {
+            op = last_op;
+            scanf("%d %d", &a, &b);
+        }
+
+        if (op == 'a') {
+            printf("%d+%d=%d\n", a, b, a + b);
+            len = snprintf(NULL, 0, "%d+%d=%d\n", a, b, a + b);
+        } else if (op == 'b') {
+            printf("%d-%d=%d\n", a, b, a - b);
+            len = snprintf(NULL, 0, "%d-%d=%d\n", a, b, a - b);
+        } else if (op == 'c') {
+            printf("%d*%d=%d\n", a, b, a * b);
+            len = snprintf(NULL, 0, "%d*%d=%d\n", a, b, a * b);
+        }
+
+        printf("%d\n", len);
+        last_op = op;
+    }
+
+    return 0;
+}
