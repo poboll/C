@@ -44,7 +44,6 @@ int main() {
             op = last_op;
             scanf("%d %d", &a, &b);
         }
-
         if (op == 'a') {
             printf("%d+%d=%d\n", a, b, a + b);
             len = snprintf(NULL, 0, "%d+%d=%d\n", a, b, a + b);
