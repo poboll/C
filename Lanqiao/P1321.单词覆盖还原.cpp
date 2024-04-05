@@ -14,4 +14,26 @@
 // 4
 // 2
 // 提示
-// 数据保证，3\le l\le255，字符串仅仅包含如下字符：.bgilory。
+// 数据保证，3 <= l <= 255，字符串仅仅包含如下字符：.bgilory。
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char str[256];
+    scanf("%s", str);
+    int len = strlen(str);
+    int boy_count = 0, girl_count = 0;
+
+    for (int i = 0; i < len; ++i) {
+        if (str[i] == 'b' && str[i + 1] == 'o' && str[i + 2] == 'y') {
+            ++boy_count;
+            i += 2; // Skip the 'boy' sequence
+        } else if (str[i] == 'g' && str[i + 1] == 'i' && str[i + 2] == 'r' && str[i + 3] == 'l') {
+            ++girl_count;
+            i += 3; // Skip the 'girl' sequence
+        }
+    }
+
+    printf("%d\n%d\n", boy_count, girl_count);
+    return 0;
+}
