@@ -1,0 +1,2 @@
+防止返回值优化选项：
+g++ xxx.cpp -fno-elide-constructors -std=c++11

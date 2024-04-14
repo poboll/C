@@ -54,7 +54,7 @@ void insert(int x) {
     int k = (x % N + N) % N;//先进行映射
     e[idx] = x;
     ne[idx] = h[k];
-    h[k] = idx++;
+    h[k] = idx ++;
 }
 bool find(int x) {
     int k = (x % N + N) % N;

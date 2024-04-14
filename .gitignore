@@ -1,4 +1,7 @@
-
-.vscode/c_cpp_properties.json
-.vscode/launch.json
-.vscode/tasks.json
+/.vscode
+/.vs
+/AcWing/op/cache
+/cmake-build-debug
+.DS_Store
+/.idea
+/亲爱的你，不要以为别人发光就觉得自己暗淡。/.vscode
