@@ -4,7 +4,6 @@ https://github.com/poboll/C
 
 `#include <❤>`
 
-<!-- Link Definitions for Wakatime -->
 [Wakatime Logo Link]: https://wakatime.com/badge/user/f89598ea-6723-481b-a51b-6323e54a3c5c/project/0645c716-822f-4ba1-a897-04cf5a3fbbfb.svg
 [Wakatime Info Link]: https://wakatime.com/badge/user/f89598ea-6723-481b-a51b-6323e54a3c5c/project/0645c716-822f-4ba1-a897-04cf5a3fbbfb?style=flat
 
@@ -145,6 +144,18 @@ Includes the current work of the force brush, also includes some personal projec
 ### `./AcWing`
 
 Contains the projects that are currently being studied in the AcWing Algorithm Competition course assignments, as well as some common code templates.
+
+### `./luogu`
+
+Contains the projects that are currently being studied in the luogu Algorithm Competition course assignments, as well as some common code templates.
+
+### `./亲爱的你，不要以为别人发光就觉得自己暗淡。`
+
+Contains the projects that are currently being studied in the lanqiao Algorithm Competition course assignments, as well as some common code templates.
+
+### `./新特性`
+
+Includes learning about new features of C++11, as well as some commonly used code templates.
 
 ## References
 
