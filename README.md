@@ -1,26 +1,17 @@
 # **C Programming**
 
-https://github.com/poboll/C
+![Wakatime](https://wakatime.com/badge/user/f89598ea-6723-481b-a51b-6323e54a3c5c/project/0645c716-822f-4ba1-a897-04cf5a3fbbfb.svg)
 
-`#include <❤>`
+This repository aims to guide you through the world of **modern C++** using popular toolchains. Each topic resides in its own folder, and projects are organized accordingly. Most directories come with a `CMakeLists.txt`, making compilation easier with `CMake`.
 
-[Wakatime Logo Link]: https://wakatime.com/badge/user/f89598ea-6723-481b-a51b-6323e54a3c5c/project/0645c716-822f-4ba1-a897-04cf5a3fbbfb.svg
-[Wakatime Info Link]: https://wakatime.com/badge/user/f89598ea-6723-481b-a51b-6323e54a3c5c/project/0645c716-822f-4ba1-a897-04cf5a3fbbfb?style=flat
+> Software doesn't run on magic; it's powered by the expertise of developers.
 
-[![wakatime][Wakatime Logo Link]][Wakatime Info Link]
-
-This repository _hopefully_ can lead you through the **modern C++** world, with some of its popular tool chains. <br>
-Each topic is placed in individual folder. Projects are placed under each descriptively-named folders. <br>
-**Most** of the directories are provided with a `CMakeLists.txt`. <br>
-Using `CMake` will be significantly easier than manually compilling all the files with your favourite compiler. <br>
-For your comfort, some of the files have required compilation command focumented in the source file itself.
-> Software does not run in a magic fairy aether powered by the fevered dreams of CS PhDs.
 ## Languages
 **C/C++, Objective-C/C++**
 
 <img src="Settings/images/c_logo.png" alt="An image for C Language" width="100"/><img src="Settings/images/cpp_logo.png" alt="An image for C++" width="100"/>   <img src="Settings/images/mingw_logo.png" alt="An image for MinGW" width="110"/>
 
-```C++
+```cpp
 class person {
 public:
     explicit person() = default;
@@ -31,9 +22,9 @@ public:
     : first(std::move(fn))
     , last(std::move(ln)) {}
     person(const person& rhs) = default;
-    person& operator = (const person&);
+    person& operator=(const person&);
     person(person&& rhs) noexcept = default;
-    person& operator = (person&& rhs) noexcept;
+    person& operator=(person&& rhs) noexcept;
     [[nodiscard]] inline std::string& firstname() { return first; }
     inline const std::string& firstname() const { return first; }
     [[nodiscard]] inline std::string& lastname() { return last; }
@@ -47,61 +38,63 @@ private:
 ## **Getting Started**
 **Example to Compile a File Named `get_tie.cpp`**
 
-```Bash
+```bash
 $ g++ --version
 $ cd ./StandardTemplateLibrary/Tuple
 $ g++ -g -Wall -Wextra -Wpedantic -c get_tie.cpp -o get_tie.exe -std=gnu++2b
 $ ./get_tie
 ```
 
-**To Update `MinGW` on Windows** <br>
-Run a `PowerShell` session with administrator privilege and run:
+**To Update `MinGW` on Windows**
+Run PowerShell as Administrator and execute:
 
-```Bash
-$ # Get the latest version of mingw
+```bash
 $ mingw-get update
 $ mingw-get upgrade
-$ # Verify the version of installed gcc and g++
 $ gcc --version
 $ g++ --version
 ```
 
 ## **Repository Directories**
-If you already have a configured `CMake` for your operating system, simple change to the directory with such `CMakeLists.txt` and run:<br>
-```Bash
+If you already have `CMake` configured, simply navigate to the directory with a `CMakeLists.txt` and run:
+
+```bash
 $ cmake .
 ```
+
 or
-```Bash
+
+```bash
 $ cmake ./CMakeLists.txt
 ```
 
-For example, change to directory `./DesignPatterns`:
-```Bash
+For example, to change to the `./DesignPatterns` directory:
+
+```bash
 $ cd ./DesignPatterns
 $ cmake ./CMakeLists.txt
 ```
 
-The convention is to create a folder dedicated to `CMake` files, for example, `build` or `bin`:
-```Bash
+Conventionally, create a folder dedicated to `CMake` files, such as `build` or `bin`:
+
+```bash
 $ cd ./DesignPatterns
 $ mkdir build
 $ cd build
 $ cmake ../CMakeLists.txt -G "Visual Studio 17 2022"
 ```
 
-To build with popular `Ninja` or `MinGW` generator:
-```Bash
-$ # With Ninja generator
+To build with popular generators like `Ninja` or `MinGW`:
+
+```bash
 $ cmake ../CMakeLists.txt -G "Ninja"
-$ # With MinGW generator
 $ cmake ../CMakeLists.txt -G "MinGW Makefiles"
 ```
 
 ### `./Util` and `./Util/tests`
-Functionality provided by separate module. A namespace `util` is created to better manage the functions.<br>
-Tests and `GoogleTest` are located within the `Util/tests` folder.
-```C++
+These folders contain functionality provided by separate modules. A `util` namespace is created for better management of functions. Tests and `GoogleTest` are located within the `Util/tests` folder.
+
+```cpp
 namespace util {
     namespace data_structure {}
     namespace list {}
@@ -115,51 +108,22 @@ namespace util {
 }
 ```
 
-Contains template (generic) function in a C-style header file, providing the following functionality:
-* `is_instance_of.hpp`: to quickly identify whether an object if of a specified type; like `isinstance()` in Python.
-* `is_same_type_of.hpp`: to quickly identify whether two objects are the same type using `typeid().hash_code()` and `typeid().name()`.
-* `log.h`: function-style definition `LOG(...)` using macro in C.
-* `parse.hpp`: to easily split a comma-separated `std::string`.
-* `print_list.hpp`: template function to print a `std::list<>` to the console; accepts a generic type of `std::list`.
-* `print_range.hpp`: template function to print a `std::ranges<>` to the console; accepts a genrice tpye of `std::ranges`.
-* `print_vec.hpp`: template function to print a `std::vector<>` to the console; accepts a generic type of `std::vector`.
-* `safe_free.hpp`: implementing our own `free()` function from the standard library to release allocated resources.
+Contains template (generic) functions in a C-style header file, providing various functionalities.
 
 ### `./HackerRank`
-Contains solutions to some of the basic problem solving coding questions. Provided file name most likely describes the content.
-The `README.md` has more handy notes when encountering those problems.  
+Contains solutions to basic problem-solving coding questions, with file names usually describing the content. `README.md` provides additional notes for these problems.
 
 ### `./ObjectiveC`
-Popular concepts in Objective-C.
-Compiled in Windows using `GNUstep Core` and provided GNUstep developer tools.
+Covers popular concepts in Objective-C, compiled in Windows using GNUstep Core and GNUstep developer tools.
 
-### `./Projects`
-Contains projects carried along the coursework and includes some personal project as well.
-For example, building a terminal progress bar for visual effects and working with `OpenGL` library in `C++`.
+### [`./Projects`](https://github.com/poboll/C/tree/master/Project)
+Contains projects from coursework and personal projects, including building a terminal progress bar for visual effects and working with the `OpenGL` library in `C++`.
 
-### `./LeetCode`
-
-Includes the current work of the force brush, also includes some personal projects.
-
-### `./AcWing`
-
-Contains the projects that are currently being studied in the AcWing Algorithm Competition course assignments, as well as some common code templates.
-
-### `./luogu`
-
-Contains the projects that are currently being studied in the luogu Algorithm Competition course assignments, as well as some common code templates.
-
-### `./亲爱的你，不要以为别人发光就觉得自己暗淡。`
-
-Contains the projects that are currently being studied in the lanqiao Algorithm Competition course assignments, as well as some common code templates.
-
-### `./新特性`
-
-Includes learning about new features of C++11, as well as some commonly used code templates.
+### [`./LeetCode`](https://github.com/poboll/C/tree/master/LeetCode), [`./AcWing`](https://github.com/poboll/C/tree/master/AcWing), [`./luogu`](https://github.com/poboll/C/tree/master/luogu), [`./亲爱的你，不要以为别人发光就觉得自己暗淡。`](https://github.com/poboll/C/tree/master/%E4%BA%B2%E7%88%B1%E7%9A%84%E4%BD%A0%EF%BC%8C%E4%B8%8D%E8%A6%81%E4%BB%A5%E4%B8%BA%E5%88%AB%E4%BA%BA%E5%8F%91%E5%85%89%E5%B0%B1%E8%A7%89%E5%BE%97%E8%87%AA%E5%B7%B1%E6%9A%97%E6%B7%A1%E3%80%82), [`./新特性`](https://github.com/poboll/C/tree/master/%E6%96%B0%E7%89%B9%E6%80%A7)
+Includes current work, personal projects, and templates for various competitions and learning about new features in `C++11`.
 
 ## References
-
-### **Commonly Used Command in `CMake`**
+### **Commonly Used Commands in `CMake`**
 * [`target_sources`](https://cmake.org/cmake/help/latest/command/target_sources.html)
 * [`target_compile_options`](https://cmake.org/cmake/help/latest/command/target_compile_options.html)
 * [`target_compile_definitions`](https://cmake.org/cmake/help/latest/command/target_compile_definitions.html)

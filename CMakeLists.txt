@@ -151,7 +151,6 @@ add_executable(C
         Project/list/队列2.cpp
         Project/tetris/day1.cpp
         Project/tetris/teris.cpp
-        Project/test.cpp
         新特性/C++11新特性学习/第01天/1-教学资料/课堂记录.cpp
         新特性/C++11新特性学习/第01天/4-源代码/01_auto的使用.cpp
         新特性/C++11新特性学习/第01天/4-源代码/02_auto易错点.cpp
